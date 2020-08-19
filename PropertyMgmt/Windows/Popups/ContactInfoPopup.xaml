@@ -1,0 +1,75 @@
+﻿<Window x:Class="PropertyMgmt.Windows.Popups.ContactInfoPopup"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:PropertyMgmt.ViewModel"
+        xmlns:ignore="http://www.ignore.com"
+        mc:Ignorable="d ignore" 
+        DataContext="{Binding Main, Source={StaticResource Locator}}"
+        ResizeMode="NoResize" Width="600" Height="360"
+        Title="Contact information for (no name)"
+        Closed="Window_Closed">
+
+    <Grid DataContext="{Binding WorkingContact}">
+        <StackPanel Orientation="Vertical">
+            <GroupBox Header="Name">
+                <StackPanel Margin="10" Orientation="Horizontal">
+                    <TextBlock Text="Last name:" VerticalAlignment="Center"/>
+                    <TextBox Name="txtLastName" Margin="26,0,0,0" VerticalAlignment="Center" Width="100" Text="{Binding last_name}" TextChanged="Name_TextChanged"/>
+                    <TextBlock Margin="20,0,0,0" Text="First name:" VerticalAlignment="Center"/>
+                    <TextBox Name="txtFirstName" Margin="20,0,0,0" VerticalAlignment="Center" Width="100" Text="{Binding first_name}" TextChanged="Name_TextChanged"/>
+                    <TextBlock Margin="20,0,0,0" Text="Middle initial:" VerticalAlignment="Center"/>
+                    <TextBox Name="txtMiddleName" Margin="20,0,0,0" VerticalAlignment="Center" Width="20" Text="{Binding middle_initial}" TextChanged="Name_TextChanged"/>
+                </StackPanel>
+            </GroupBox>
+            <GroupBox Header="Address">
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal" Margin="10">
+                        <TextBlock Text="Address #1:" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        <TextBox Margin="20,0,0,0" Width="180" HorizontalAlignment="Right" Text="{Binding address1}"/>
+                        <TextBlock Margin="20,0,0,0" Text="Address #2:" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        <TextBox Margin="20,0,0,0" Width="180" HorizontalAlignment="Right" Text="{Binding address2}"/>
+                    </StackPanel>
+                    <StackPanel Margin="10" Orientation="Horizontal">
+                        <TextBlock Text="City:" VerticalAlignment="Center"/>
+                        <TextBox Margin="59,0,0,0" Width="140" VerticalAlignment="Center" Text="{Binding city}"/>
+                        <TextBlock Margin="40,0,0,0" Text="State:" VerticalAlignment="Center"/>
+                        <ComboBox Margin="10,0,0,0" IsReadOnly="True" Width="50" VerticalAlignment="Center"
+                                  ItemsSource="{Binding DataContext.StateList, RelativeSource={RelativeSource AncestorType=Window}}"
+                                  DisplayMemberPath="Abbreviations" SelectedValue="{Binding state}" SelectedValuePath="Abbreviations"/>
+                        <TextBlock Margin="40,0,0,0" Text="Zip:" VerticalAlignment="Center"/>
+                        <TextBox Margin="10,0,0,0" Width="70" VerticalAlignment="Center" Text="{Binding zip}"/>
+                    </StackPanel>
+                </StackPanel>
+            </GroupBox>
+            <GroupBox Header="Communication">
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Margin="10" Orientation="Horizontal">
+                        <TextBlock Text="Phone #1:" VerticalAlignment="Center"/>
+                        <TextBox Margin="30,0,0,0" Width="80" Text="{Binding phone1}" />
+                        <TextBlock Margin="60,0,0,0" Text="Phone #2:" VerticalAlignment="Center"/>
+                        <TextBox Margin="10,0,0,0" Width="80" Text="{Binding phone2}"/>
+                        <TextBlock Margin="60,0,0,0" Text="Fax:" VerticalAlignment="Center"/>
+                        <TextBox Margin="10,0,0,0" Width="80" Text="{Binding fax}"/>
+                    </StackPanel>
+                    <StackPanel Margin="10" Orientation="Horizontal">
+                        <TextBlock Text="Email address:" VerticalAlignment="Center"/>
+                        <TextBox Margin="9,0,0,0" Width="282" Text="{Binding email}" />
+                    </StackPanel>
+                </StackPanel>
+
+            </GroupBox>
+            <Grid Height="39">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button Content="OK" Width="60" VerticalAlignment="Center" IsDefault="True"
+                            Command="{Binding DataContext.SaveItemCommand, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{x:Static vm:ItemType.Contact}"/>
+                    <Button Margin="30,0,0,0" Content="Cancel" Width="60" VerticalAlignment="Center" IsCancel="True"/>
+                </StackPanel>
+                
+            </Grid>
+
+        </StackPanel>
+
+    </Grid>
+</Window>

@@ -1,0 +1,64 @@
+﻿<Window x:Class="PropertyMgmt.Windows.Popups.CorrespondenceInfoPopup"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:PropertyMgmt.ViewModel"
+        xmlns:ignore="http://www.ignore.com"
+        mc:Ignorable="d ignore"
+        DataContext="{Binding Main, Source={StaticResource Locator}}"
+        MinWidth="610" MinHeight="520" Width="610" Height="520"
+        Title="Correspondence information for (no name)"
+        Closed="Window_Closed">
+    <Grid DataContext="{Binding WorkingTenant.WorkingCorrespondence}">
+        <GroupBox Header="General" Height="190" Margin="0,0,0,290" VerticalAlignment="Top">
+            <StackPanel Orientation="Vertical">
+                <Grid Margin="10">
+                    <TextBlock Text="Summary:" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <TextBox Margin="60,0,0,0" VerticalAlignment="Center" Text="{Binding summary}"/>
+                </Grid>
+                <Grid Margin="10">
+                    <TextBlock Text="Tenant:" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <ComboBox Name="cbTenant" IsReadOnly="True" Margin="60,0,0,0" VerticalAlignment="Center" SelectionChanged="cbTenant_SelectionChanged" SelectedValue="{Binding Tenant}"
+                              ItemsSource="{Binding DataContext.TenantList, RelativeSource={RelativeSource AncestorType=Window}}" DisplayMemberPath="NameAndProperty"/>
+                </Grid>
+                <Grid Margin="10">
+                    <TextBlock Text="Date/Time call placed:" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <TextBox Margin="131,0,329,0" Width="100" VerticalAlignment="Center" HorizontalAlignment="Left" Text="{Binding time_placed}"/>
+                    <TextBlock Margin="312,3,0,3" Text="Date/Time completed:" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <TextBox Margin="460,0,0,0" VerticalAlignment="Center" Width="100" HorizontalAlignment="Left" Text="{Binding time_completed}"/>
+                </Grid>
+                <Grid Margin="10">
+                    <CheckBox Name="chkFollowupRequired" Content="Followup required:" HorizontalAlignment="Left" VerticalAlignment="Center" IsChecked="{Binding followup_required}"/>
+                    <TextBox Margin="131,0,0,0" VerticalAlignment="Center" Text="{Binding followup_notes}" IsEnabled="{Binding ElementName=chkFollowupRequired, Path=IsChecked}"/>
+                </Grid>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Header="Call type" Height="110" Margin="0,195,0,175" VerticalAlignment="Top">
+            <StackPanel Orientation="Vertical">
+                <Grid Margin="10">
+                    <TextBlock Text="Call type:" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <ComboBox IsReadOnly="True" Margin="60,0,0,0" VerticalAlignment="Center"/>
+                </Grid>
+                <Grid Margin="10">
+                    <TextBlock Text="Misc information:" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <TextBox Margin="130,0,330,0" Width="100" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                    <TextBlock Margin="330,0,0,0" Text="More misc info:" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <TextBox Margin="460,0,0,0" Width="100" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                </Grid>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Header="Notes" VerticalAlignment="Stretch" Margin="0,309,0,27">
+            <Grid VerticalAlignment="Stretch">
+                <TextBox AcceptsReturn="True" MinHeight="120" Text="{Binding notes}"/>
+            </Grid>
+        </GroupBox>
+        <Grid Height="35" VerticalAlignment="Bottom">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Content="OK" Width="60" VerticalAlignment="Center" Margin="0,10,0,3" IsDefault="True"
+                        Command="{Binding DataContext.SaveItemCommand, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{x:Static vm:ItemType.Correspondence}"/>
+                <Button Margin="30,10,0,3" Content="Cancel" Width="60" VerticalAlignment="Center" IsCancel="True"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

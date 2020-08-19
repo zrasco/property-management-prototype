@@ -1,0 +1,2342 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="PropMgmtDB.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="PropMgmtDBStoreContainer">
+    <EntitySet Name="Owners" EntityType="PropMgmtDB.Store.Owners" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Properties" EntityType="PropMgmtDB.Store.Properties" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Tenants" EntityType="PropMgmtDB.Store.Tenants" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ParkingStalls" EntityType="PropMgmtDB.Store.ParkingStalls" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ServiceCalls" EntityType="PropMgmtDB.Store.ServiceCalls" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Vendors" EntityType="PropMgmtDB.Store.Vendors" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="GateCodes" EntityType="PropMgmtDB.Store.GateCodes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Vehicles" EntityType="PropMgmtDB.Store.Vehicles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="HOAs" EntityType="PropMgmtDB.Store.HOAs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Contacts" EntityType="PropMgmtDB.Store.Contacts" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PropertyManagers" EntityType="PropMgmtDB.Store.PropertyManagers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="HOA_PropertyManagerHistories" EntityType="PropMgmtDB.Store.HOA_PropertyManagerHistories" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UtilitiesPaymentHistories" EntityType="PropMgmtDB.Store.UtilitiesPaymentHistories" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="LedgerRecords" EntityType="PropMgmtDB.Store.LedgerRecords" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PaymentTypes" EntityType="PropMgmtDB.Store.PaymentTypes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ChargeTypes" EntityType="PropMgmtDB.Store.ChargeTypes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BusinessTypes" EntityType="PropMgmtDB.Store.BusinessTypes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UtilitiesTypes" EntityType="PropMgmtDB.Store.UtilitiesTypes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DepositTypes" EntityType="PropMgmtDB.Store.DepositTypes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Correspondences" EntityType="PropMgmtDB.Store.Correspondences" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Files" EntityType="PropMgmtDB.Store.Files" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="FileContainers" EntityType="PropMgmtDB.Store.FileContainers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AuditEntries" EntityType="PropMgmtDB.Store.AuditEntries" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="OwnersContact" EntityType="PropMgmtDB.Store.OwnersContact" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="VendorsContact" EntityType="PropMgmtDB.Store.VendorsContact" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="HOAsContact" EntityType="PropMgmtDB.Store.HOAsContact" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PropertyManagersContact" EntityType="PropMgmtDB.Store.PropertyManagersContact" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="PropertiesTenants" Association="PropMgmtDB.Store.PropertiesTenants">
+      <End Role="Properties" EntitySet="Properties" />
+      <End Role="Tenants" EntitySet="Tenants" />
+    </AssociationSet>
+    <AssociationSet Name="ContactTenants" Association="PropMgmtDB.Store.ContactTenants">
+      <End Role="Contact" EntitySet="Contacts" />
+      <End Role="Tenants" EntitySet="Tenants" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OwnersContact_Owners" Association="PropMgmtDB.Store.FK_OwnersContact_Owners">
+      <End Role="Owners" EntitySet="Owners" />
+      <End Role="OwnersContact" EntitySet="OwnersContact" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OwnersContact_Contact" Association="PropMgmtDB.Store.FK_OwnersContact_Contact">
+      <End Role="Contact" EntitySet="Contacts" />
+      <End Role="OwnersContact" EntitySet="OwnersContact" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VendorsContact_Vendors" Association="PropMgmtDB.Store.FK_VendorsContact_Vendors">
+      <End Role="Vendors" EntitySet="Vendors" />
+      <End Role="VendorsContact" EntitySet="VendorsContact" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VendorsContact_Contact" Association="PropMgmtDB.Store.FK_VendorsContact_Contact">
+      <End Role="Contact" EntitySet="Contacts" />
+      <End Role="VendorsContact" EntitySet="VendorsContact" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HOAsContact_HOAs" Association="PropMgmtDB.Store.FK_HOAsContact_HOAs">
+      <End Role="HOAs" EntitySet="HOAs" />
+      <End Role="HOAsContact" EntitySet="HOAsContact" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HOAsContact_Contact" Association="PropMgmtDB.Store.FK_HOAsContact_Contact">
+      <End Role="Contact" EntitySet="Contacts" />
+      <End Role="HOAsContact" EntitySet="HOAsContact" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PropertyManagersContact_PropertyManagers" Association="PropMgmtDB.Store.FK_PropertyManagersContact_PropertyManagers">
+      <End Role="PropertyManagers" EntitySet="PropertyManagers" />
+      <End Role="PropertyManagersContact" EntitySet="PropertyManagersContact" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PropertyManagersContact_Contact" Association="PropMgmtDB.Store.FK_PropertyManagersContact_Contact">
+      <End Role="Contact" EntitySet="Contacts" />
+      <End Role="PropertyManagersContact" EntitySet="PropertyManagersContact" />
+    </AssociationSet>
+    <AssociationSet Name="PropertiesServiceCalls" Association="PropMgmtDB.Store.PropertiesServiceCalls">
+      <End Role="Properties" EntitySet="Properties" />
+      <End Role="ServiceCalls" EntitySet="ServiceCalls" />
+    </AssociationSet>
+    <AssociationSet Name="UtilitiesPaymentHistoryUtilitiesTypes" Association="PropMgmtDB.Store.UtilitiesPaymentHistoryUtilitiesTypes">
+      <End Role="UtilitiesPaymentHistory" EntitySet="UtilitiesPaymentHistories" />
+      <End Role="UtilitiesTypes" EntitySet="UtilitiesTypes" />
+    </AssociationSet>
+    <AssociationSet Name="PropertiesGateCodes" Association="PropMgmtDB.Store.PropertiesGateCodes">
+      <End Role="Properties" EntitySet="Properties" />
+      <End Role="GateCodes" EntitySet="GateCodes" />
+    </AssociationSet>
+    <AssociationSet Name="PropertiesParkingStalls" Association="PropMgmtDB.Store.PropertiesParkingStalls">
+      <End Role="Properties" EntitySet="Properties" />
+      <End Role="ParkingStalls" EntitySet="ParkingStalls" />
+    </AssociationSet>
+    <AssociationSet Name="PropertiesUtilitiesPaymentHistory" Association="PropMgmtDB.Store.PropertiesUtilitiesPaymentHistory">
+      <End Role="Properties" EntitySet="Properties" />
+      <End Role="UtilitiesPaymentHistory" EntitySet="UtilitiesPaymentHistories" />
+    </AssociationSet>
+    <AssociationSet Name="TenantsVehicles" Association="PropMgmtDB.Store.TenantsVehicles">
+      <End Role="Tenants" EntitySet="Tenants" />
+      <End Role="Vehicles" EntitySet="Vehicles" />
+    </AssociationSet>
+    <AssociationSet Name="PropertiesHOAs" Association="PropMgmtDB.Store.PropertiesHOAs">
+      <End Role="Properties" EntitySet="Properties" />
+      <End Role="HOAs" EntitySet="HOAs" />
+    </AssociationSet>
+    <AssociationSet Name="VendorsBusinessTypes" Association="PropMgmtDB.Store.VendorsBusinessTypes">
+      <End Role="Vendors" EntitySet="Vendors" />
+      <End Role="BusinessTypes" EntitySet="BusinessTypes" />
+    </AssociationSet>
+    <AssociationSet Name="LedgerRecordDepositTypes" Association="PropMgmtDB.Store.LedgerRecordDepositTypes">
+      <End Role="LedgerRecord" EntitySet="LedgerRecords" />
+      <End Role="DepositTypes" EntitySet="DepositTypes" />
+    </AssociationSet>
+    <AssociationSet Name="LedgerRecordPaymentTypes" Association="PropMgmtDB.Store.LedgerRecordPaymentTypes">
+      <End Role="LedgerRecord" EntitySet="LedgerRecords" />
+      <End Role="PaymentTypes" EntitySet="PaymentTypes" />
+    </AssociationSet>
+    <AssociationSet Name="TenantsLedgerRecord" Association="PropMgmtDB.Store.TenantsLedgerRecord">
+      <End Role="Tenants" EntitySet="Tenants" />
+      <End Role="LedgerRecord" EntitySet="LedgerRecords" />
+    </AssociationSet>
+    <AssociationSet Name="OwnersLedgerRecord" Association="PropMgmtDB.Store.OwnersLedgerRecord">
+      <End Role="Owners" EntitySet="Owners" />
+      <End Role="LedgerRecord" EntitySet="LedgerRecords" />
+    </AssociationSet>
+    <AssociationSet Name="VendorsLedgerRecord" Association="PropMgmtDB.Store.VendorsLedgerRecord">
+      <End Role="Vendors" EntitySet="Vendors" />
+      <End Role="LedgerRecord" EntitySet="LedgerRecords" />
+    </AssociationSet>
+    <AssociationSet Name="HOAsLedgerRecord" Association="PropMgmtDB.Store.HOAsLedgerRecord">
+      <End Role="HOAs" EntitySet="HOAs" />
+      <End Role="LedgerRecord" EntitySet="LedgerRecords" />
+    </AssociationSet>
+    <AssociationSet Name="PropertyManagersLedgerRecord" Association="PropMgmtDB.Store.PropertyManagersLedgerRecord">
+      <End Role="PropertyManagers" EntitySet="PropertyManagers" />
+      <End Role="LedgerRecord" EntitySet="LedgerRecords" />
+    </AssociationSet>
+    <AssociationSet Name="LedgerRecordChargeTypes" Association="PropMgmtDB.Store.LedgerRecordChargeTypes">
+      <End Role="LedgerRecord" EntitySet="LedgerRecords" />
+      <End Role="ChargeTypes" EntitySet="ChargeTypes" />
+    </AssociationSet>
+    <AssociationSet Name="PropertiesOwners" Association="PropMgmtDB.Store.PropertiesOwners">
+      <End Role="Properties" EntitySet="Properties" />
+      <End Role="Owners" EntitySet="Owners" />
+    </AssociationSet>
+    <AssociationSet Name="VendorServiceCall" Association="PropMgmtDB.Store.VendorServiceCall">
+      <End Role="Vendor" EntitySet="Vendors" />
+      <End Role="ServiceCall" EntitySet="ServiceCalls" />
+    </AssociationSet>
+    <AssociationSet Name="HOAHOA_PropertyManagerHistory" Association="PropMgmtDB.Store.HOAHOA_PropertyManagerHistory">
+      <End Role="HOA" EntitySet="HOAs" />
+      <End Role="HOA_PropertyManagerHistory" EntitySet="HOA_PropertyManagerHistories" />
+    </AssociationSet>
+    <AssociationSet Name="PropertyManagerHOA_PropertyManagerHistory" Association="PropMgmtDB.Store.PropertyManagerHOA_PropertyManagerHistory">
+      <End Role="PropertyManager" EntitySet="PropertyManagers" />
+      <End Role="HOA_PropertyManagerHistory" EntitySet="HOA_PropertyManagerHistories" />
+    </AssociationSet>
+    <AssociationSet Name="TenantCorrespondence" Association="PropMgmtDB.Store.TenantCorrespondence">
+      <End Role="Tenant" EntitySet="Tenants" />
+      <End Role="Correspondence" EntitySet="Correspondences" />
+    </AssociationSet>
+    <AssociationSet Name="FileContainerFile" Association="PropMgmtDB.Store.FileContainerFile">
+      <End Role="FileContainer" EntitySet="FileContainers" />
+      <End Role="File" EntitySet="Files" />
+    </AssociationSet>
+    <AssociationSet Name="TenantFileContainer" Association="PropMgmtDB.Store.TenantFileContainer">
+      <End Role="Tenant" EntitySet="Tenants" />
+      <End Role="FileContainer" EntitySet="FileContainers" />
+    </AssociationSet>
+    <AssociationSet Name="PropertyFileContainer" Association="PropMgmtDB.Store.PropertyFileContainer">
+      <End Role="Property" EntitySet="Properties" />
+      <End Role="FileContainer" EntitySet="FileContainers" />
+    </AssociationSet>
+    <AssociationSet Name="VendorFileContainer" Association="PropMgmtDB.Store.VendorFileContainer">
+      <End Role="Vendor" EntitySet="Vendors" />
+      <End Role="FileContainer" EntitySet="FileContainers" />
+    </AssociationSet>
+    <AssociationSet Name="HOAFileContainer" Association="PropMgmtDB.Store.HOAFileContainer">
+      <End Role="HOA" EntitySet="HOAs" />
+      <End Role="FileContainer" EntitySet="FileContainers" />
+    </AssociationSet>
+    <AssociationSet Name="OwnerFileContainer" Association="PropMgmtDB.Store.OwnerFileContainer">
+      <End Role="Owner" EntitySet="Owners" />
+      <End Role="FileContainer" EntitySet="FileContainers" />
+    </AssociationSet>
+    <AssociationSet Name="PropertyManagerFileContainer" Association="PropMgmtDB.Store.PropertyManagerFileContainer">
+      <End Role="PropertyManager" EntitySet="PropertyManagers" />
+      <End Role="FileContainer" EntitySet="FileContainers" />
+    </AssociationSet>
+    <AssociationSet Name="PropertyAuditEntry" Association="PropMgmtDB.Store.PropertyAuditEntry">
+      <End Role="Property" EntitySet="Properties" />
+      <End Role="AuditEntry" EntitySet="AuditEntries" />
+    </AssociationSet>
+    <AssociationSet Name="TenantAuditEntry" Association="PropMgmtDB.Store.TenantAuditEntry">
+      <End Role="Tenant" EntitySet="Tenants" />
+      <End Role="AuditEntry" EntitySet="AuditEntries" />
+    </AssociationSet>
+    <AssociationSet Name="VendorAuditEntry" Association="PropMgmtDB.Store.VendorAuditEntry">
+      <End Role="Vendor" EntitySet="Vendors" />
+      <End Role="AuditEntry" EntitySet="AuditEntries" />
+    </AssociationSet>
+    <AssociationSet Name="HOAAuditEntry" Association="PropMgmtDB.Store.HOAAuditEntry">
+      <End Role="HOA" EntitySet="HOAs" />
+      <End Role="AuditEntry" EntitySet="AuditEntries" />
+    </AssociationSet>
+    <AssociationSet Name="PropertyManagerAuditEntry" Association="PropMgmtDB.Store.PropertyManagerAuditEntry">
+      <End Role="PropertyManager" EntitySet="PropertyManagers" />
+      <End Role="AuditEntry" EntitySet="AuditEntries" />
+    </AssociationSet>
+    <AssociationSet Name="OwnerAuditEntry" Association="PropMgmtDB.Store.OwnerAuditEntry">
+      <End Role="Owner" EntitySet="Owners" />
+      <End Role="AuditEntry" EntitySet="AuditEntries" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Owners">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="company_name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Properties">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="address1" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="city" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="state" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="zip" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="address2" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="mailbox_info" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="owner_pays_utilities" Type="bit" Nullable="false" />
+    <Property Name="hoa_id" Type="int" Nullable="true" />
+    <Property Name="owner_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tenants">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="lease_start" Type="datetime" Nullable="false" />
+    <Property Name="lease_end" Type="datetime" Nullable="false" />
+    <Property Name="rent_amt" Type="int" Nullable="false" />
+    <Property Name="section8" Type="bit" Nullable="false" />
+    <Property Name="property_id" Type="int" Nullable="false" />
+    <Property Name="contact_id" Type="int" Nullable="false" DefaultValue="0" />
+  </EntityType>
+  <EntityType Name="ParkingStalls">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="property_id" />
+    </Key>
+    <Property Name="stall" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="property_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ServiceCalls">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="time_placed" Type="datetime" Nullable="false" />
+    <Property Name="time_completed" Type="datetime" Nullable="true" />
+    <Property Name="summary" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="notes" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="invoice_nbr" Type="int" Nullable="false" />
+    <Property Name="vendor_id" Type="int" Nullable="true" />
+    <Property Name="amount_due" Type="int" Nullable="true" />
+    <Property Name="next_eta" Type="datetime" Nullable="true" />
+    <Property Name="property_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Vendors">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="company_name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="address1" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="city" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="state" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="zip" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="phone1" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="phone2" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="address2" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="fax" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="active" Type="bit" Nullable="false" />
+    <Property Name="BusinessType_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GateCodes">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="property_id" />
+    </Key>
+    <Property Name="code" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="property_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Vehicles">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="license_plate" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="make" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="model" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="year" Type="int" Nullable="false" />
+    <Property Name="tenant_id" Type="int" Nullable="false" />
+    <Property Name="color" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="HOAs">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="company_name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="address1" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="city" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="state" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="zip" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="phone1" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="phone2" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="address2" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="fax" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Contacts">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="address1" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="city" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="middle_initial" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="first_name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="last_name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="state" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="zip" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="phone1" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="phone2" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="address2" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="email" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="fax" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="PropertyManagers">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="company_name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="address1" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="city" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="state" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="zip" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="phone1" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="phone2" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="address2" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="fax" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="HOA_PropertyManagerHistories">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="date_start" Type="datetime" Nullable="false" />
+    <Property Name="date_end" Type="datetime" Nullable="true" />
+    <Property Name="hoa_id" Type="int" Nullable="false" />
+    <Property Name="property_manager_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UtilitiesPaymentHistories">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="due_date" Type="datetime" Nullable="false" />
+    <Property Name="transaction_date" Type="datetime" Nullable="false" />
+    <Property Name="amount_paid" Type="decimal" Nullable="false" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="property_id" Type="int" Nullable="false" />
+    <Property Name="UtilitiesType_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LedgerRecords">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="amount" Type="decimal" Nullable="false" />
+    <Property Name="due_date" Type="datetime" Nullable="true" />
+    <Property Name="transaction_date" Type="datetime" Nullable="true" />
+    <Property Name="notes" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="DepositType_id" Type="int" Nullable="true" />
+    <Property Name="PaymentType_id" Type="int" Nullable="true" />
+    <Property Name="Tenant_id" Type="int" Nullable="true" />
+    <Property Name="Owner_id" Type="int" Nullable="true" />
+    <Property Name="Vendor_id" Type="int" Nullable="true" />
+    <Property Name="HOA_id" Type="int" Nullable="true" />
+    <Property Name="PropertyManager_id" Type="int" Nullable="true" />
+    <Property Name="ChargeType_id" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="PaymentTypes">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="type" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ChargeTypes">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="type" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BusinessTypes">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="type" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UtilitiesTypes">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="type" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DepositTypes">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="type" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Correspondences">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="time_placed" Type="datetime" Nullable="false" />
+    <Property Name="time_completed" Type="datetime" Nullable="true" />
+    <Property Name="summary" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="notes" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="next_eta" Type="datetime" Nullable="true" />
+    <Property Name="followup_notes" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="followup_required" Type="bit" Nullable="false" />
+    <Property Name="Tenant_id" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Files">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="file_data" Type="varbinary(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FileContainers">
+    <Key>
+      <PropertyRef Name="file_id" />
+    </Key>
+    <Property Name="file_name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="date_modified" Type="datetime" Nullable="true" />
+    <Property Name="file_id" Type="int" Nullable="false" />
+    <Property Name="file_size" Type="bigint" Nullable="false" />
+    <Property Name="Tenant_id" Type="int" Nullable="true" />
+    <Property Name="Property_id" Type="int" Nullable="true" />
+    <Property Name="Vendor_id" Type="int" Nullable="true" />
+    <Property Name="HOA_id" Type="int" Nullable="true" />
+    <Property Name="Owner_id" Type="int" Nullable="true" />
+    <Property Name="PropertyManager_id" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="AuditEntries">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="info" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="date_entered" Type="datetime" Nullable="false" />
+    <Property Name="username" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Property_id" Type="int" Nullable="true" />
+    <Property Name="Tenant_id" Type="int" Nullable="true" />
+    <Property Name="Vendor_id" Type="int" Nullable="true" />
+    <Property Name="HOA_id" Type="int" Nullable="true" />
+    <Property Name="PropertyManager_id" Type="int" Nullable="true" />
+    <Property Name="Owner_id" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="OwnersContact">
+    <Key>
+      <PropertyRef Name="OwnersContact_Contact_id" />
+      <PropertyRef Name="Contacts_id" />
+    </Key>
+    <Property Name="OwnersContact_Contact_id" Type="int" Nullable="false" />
+    <Property Name="Contacts_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="VendorsContact">
+    <Key>
+      <PropertyRef Name="VendorsContact_Contact_id" />
+      <PropertyRef Name="Contacts_id" />
+    </Key>
+    <Property Name="VendorsContact_Contact_id" Type="int" Nullable="false" />
+    <Property Name="Contacts_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HOAsContact">
+    <Key>
+      <PropertyRef Name="HOAsContact_Contact_id" />
+      <PropertyRef Name="Contacts_id" />
+    </Key>
+    <Property Name="HOAsContact_Contact_id" Type="int" Nullable="false" />
+    <Property Name="Contacts_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PropertyManagersContact">
+    <Key>
+      <PropertyRef Name="PropertyManagersContact_Contact_id" />
+      <PropertyRef Name="Contacts_id" />
+    </Key>
+    <Property Name="PropertyManagersContact_Contact_id" Type="int" Nullable="false" />
+    <Property Name="Contacts_id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="PropertiesTenants">
+    <End Role="Properties" Type="PropMgmtDB.Store.Properties" Multiplicity="1" />
+    <End Role="Tenants" Type="PropMgmtDB.Store.Tenants" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Properties">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Tenants">
+        <PropertyRef Name="property_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ContactTenants">
+    <End Role="Contact" Type="PropMgmtDB.Store.Contacts" Multiplicity="1" />
+    <End Role="Tenants" Type="PropMgmtDB.Store.Tenants" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contact">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Tenants">
+        <PropertyRef Name="contact_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PropertiesServiceCalls">
+    <End Role="Properties" Type="PropMgmtDB.Store.Properties" Multiplicity="1" />
+    <End Role="ServiceCalls" Type="PropMgmtDB.Store.ServiceCalls" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Properties">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ServiceCalls">
+        <PropertyRef Name="property_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UtilitiesPaymentHistoryUtilitiesTypes">
+    <End Role="UtilitiesPaymentHistory" Type="PropMgmtDB.Store.UtilitiesPaymentHistories" Multiplicity="*" />
+    <End Role="UtilitiesTypes" Type="PropMgmtDB.Store.UtilitiesTypes" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="UtilitiesTypes">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="UtilitiesPaymentHistory">
+        <PropertyRef Name="UtilitiesType_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PropertiesGateCodes">
+    <End Role="Properties" Type="PropMgmtDB.Store.Properties" Multiplicity="1" />
+    <End Role="GateCodes" Type="PropMgmtDB.Store.GateCodes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Properties">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="GateCodes">
+        <PropertyRef Name="property_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PropertiesParkingStalls">
+    <End Role="Properties" Type="PropMgmtDB.Store.Properties" Multiplicity="1" />
+    <End Role="ParkingStalls" Type="PropMgmtDB.Store.ParkingStalls" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Properties">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ParkingStalls">
+        <PropertyRef Name="property_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PropertiesUtilitiesPaymentHistory">
+    <End Role="Properties" Type="PropMgmtDB.Store.Properties" Multiplicity="1" />
+    <End Role="UtilitiesPaymentHistory" Type="PropMgmtDB.Store.UtilitiesPaymentHistories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Properties">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="UtilitiesPaymentHistory">
+        <PropertyRef Name="property_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TenantsVehicles">
+    <End Role="Tenants" Type="PropMgmtDB.Store.Tenants" Multiplicity="1" />
+    <End Role="Vehicles" Type="PropMgmtDB.Store.Vehicles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tenants">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Vehicles">
+        <PropertyRef Name="tenant_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PropertiesHOAs">
+    <End Role="Properties" Type="PropMgmtDB.Store.Properties" Multiplicity="*" />
+    <End Role="HOAs" Type="PropMgmtDB.Store.HOAs" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="HOAs">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Properties">
+        <PropertyRef Name="hoa_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="VendorsBusinessTypes">
+    <End Role="Vendors" Type="PropMgmtDB.Store.Vendors" Multiplicity="*" />
+    <End Role="BusinessTypes" Type="PropMgmtDB.Store.BusinessTypes" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="BusinessTypes">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Vendors">
+        <PropertyRef Name="BusinessType_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="LedgerRecordDepositTypes">
+    <End Role="LedgerRecord" Type="PropMgmtDB.Store.LedgerRecords" Multiplicity="*" />
+    <End Role="DepositTypes" Type="PropMgmtDB.Store.DepositTypes" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="DepositTypes">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="LedgerRecord">
+        <PropertyRef Name="DepositType_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="LedgerRecordPaymentTypes">
+    <End Role="LedgerRecord" Type="PropMgmtDB.Store.LedgerRecords" Multiplicity="*" />
+    <End Role="PaymentTypes" Type="PropMgmtDB.Store.PaymentTypes" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="PaymentTypes">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="LedgerRecord">
+        <PropertyRef Name="PaymentType_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TenantsLedgerRecord">
+    <End Role="Tenants" Type="PropMgmtDB.Store.Tenants" Multiplicity="0..1" />
+    <End Role="LedgerRecord" Type="PropMgmtDB.Store.LedgerRecords" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tenants">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="LedgerRecord">
+        <PropertyRef Name="Tenant_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OwnersLedgerRecord">
+    <End Role="Owners" Type="PropMgmtDB.Store.Owners" Multiplicity="0..1" />
+    <End Role="LedgerRecord" Type="PropMgmtDB.Store.LedgerRecords" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Owners">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="LedgerRecord">
+        <PropertyRef Name="Owner_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="VendorsLedgerRecord">
+    <End Role="Vendors" Type="PropMgmtDB.Store.Vendors" Multiplicity="0..1" />
+    <End Role="LedgerRecord" Type="PropMgmtDB.Store.LedgerRecords" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vendors">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="LedgerRecord">
+        <PropertyRef Name="Vendor_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="HOAsLedgerRecord">
+    <End Role="HOAs" Type="PropMgmtDB.Store.HOAs" Multiplicity="0..1" />
+    <End Role="LedgerRecord" Type="PropMgmtDB.Store.LedgerRecords" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HOAs">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="LedgerRecord">
+        <PropertyRef Name="HOA_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PropertyManagersLedgerRecord">
+    <End Role="PropertyManagers" Type="PropMgmtDB.Store.PropertyManagers" Multiplicity="0..1" />
+    <End Role="LedgerRecord" Type="PropMgmtDB.Store.LedgerRecords" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PropertyManagers">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="LedgerRecord">
+        <PropertyRef Name="PropertyManager_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="LedgerRecordChargeTypes">
+    <End Role="LedgerRecord" Type="PropMgmtDB.Store.LedgerRecords" Multiplicity="*" />
+    <End Role="ChargeTypes" Type="PropMgmtDB.Store.ChargeTypes" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="ChargeTypes">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="LedgerRecord">
+        <PropertyRef Name="ChargeType_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PropertiesOwners">
+    <End Role="Properties" Type="PropMgmtDB.Store.Properties" Multiplicity="*" />
+    <End Role="Owners" Type="PropMgmtDB.Store.Owners" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Owners">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Properties">
+        <PropertyRef Name="owner_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="VendorServiceCall">
+    <End Role="Vendor" Type="PropMgmtDB.Store.Vendors" Multiplicity="0..1" />
+    <End Role="ServiceCall" Type="PropMgmtDB.Store.ServiceCalls" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vendor">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ServiceCall">
+        <PropertyRef Name="vendor_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="HOAHOA_PropertyManagerHistory">
+    <End Role="HOA" Type="PropMgmtDB.Store.HOAs" Multiplicity="1" />
+    <End Role="HOA_PropertyManagerHistory" Type="PropMgmtDB.Store.HOA_PropertyManagerHistories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HOA">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="HOA_PropertyManagerHistory">
+        <PropertyRef Name="hoa_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PropertyManagerHOA_PropertyManagerHistory">
+    <End Role="PropertyManager" Type="PropMgmtDB.Store.PropertyManagers" Multiplicity="1" />
+    <End Role="HOA_PropertyManagerHistory" Type="PropMgmtDB.Store.HOA_PropertyManagerHistories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PropertyManager">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="HOA_PropertyManagerHistory">
+        <PropertyRef Name="property_manager_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TenantCorrespondence">
+    <End Role="Tenant" Type="PropMgmtDB.Store.Tenants" Multiplicity="0..1" />
+    <End Role="Correspondence" Type="PropMgmtDB.Store.Correspondences" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tenant">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Correspondence">
+        <PropertyRef Name="Tenant_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FileContainerFile">
+    <End Role="FileContainer" Type="PropMgmtDB.Store.FileContainers" Multiplicity="0..1" />
+    <End Role="File" Type="PropMgmtDB.Store.Files" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="File">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FileContainer">
+        <PropertyRef Name="file_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TenantFileContainer">
+    <End Role="Tenant" Type="PropMgmtDB.Store.Tenants" Multiplicity="0..1" />
+    <End Role="FileContainer" Type="PropMgmtDB.Store.FileContainers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tenant">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="FileContainer">
+        <PropertyRef Name="Tenant_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PropertyFileContainer">
+    <End Role="Property" Type="PropMgmtDB.Store.Properties" Multiplicity="0..1" />
+    <End Role="FileContainer" Type="PropMgmtDB.Store.FileContainers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Property">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="FileContainer">
+        <PropertyRef Name="Property_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="VendorFileContainer">
+    <End Role="Vendor" Type="PropMgmtDB.Store.Vendors" Multiplicity="0..1" />
+    <End Role="FileContainer" Type="PropMgmtDB.Store.FileContainers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vendor">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="FileContainer">
+        <PropertyRef Name="Vendor_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="HOAFileContainer">
+    <End Role="HOA" Type="PropMgmtDB.Store.HOAs" Multiplicity="0..1" />
+    <End Role="FileContainer" Type="PropMgmtDB.Store.FileContainers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HOA">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="FileContainer">
+        <PropertyRef Name="HOA_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OwnerFileContainer">
+    <End Role="Owner" Type="PropMgmtDB.Store.Owners" Multiplicity="0..1" />
+    <End Role="FileContainer" Type="PropMgmtDB.Store.FileContainers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Owner">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="FileContainer">
+        <PropertyRef Name="Owner_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PropertyManagerFileContainer">
+    <End Role="PropertyManager" Type="PropMgmtDB.Store.PropertyManagers" Multiplicity="0..1" />
+    <End Role="FileContainer" Type="PropMgmtDB.Store.FileContainers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PropertyManager">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="FileContainer">
+        <PropertyRef Name="PropertyManager_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PropertyAuditEntry">
+    <End Role="Property" Type="PropMgmtDB.Store.Properties" Multiplicity="0..1" />
+    <End Role="AuditEntry" Type="PropMgmtDB.Store.AuditEntries" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Property">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="AuditEntry">
+        <PropertyRef Name="Property_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TenantAuditEntry">
+    <End Role="Tenant" Type="PropMgmtDB.Store.Tenants" Multiplicity="0..1" />
+    <End Role="AuditEntry" Type="PropMgmtDB.Store.AuditEntries" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tenant">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="AuditEntry">
+        <PropertyRef Name="Tenant_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="VendorAuditEntry">
+    <End Role="Vendor" Type="PropMgmtDB.Store.Vendors" Multiplicity="0..1" />
+    <End Role="AuditEntry" Type="PropMgmtDB.Store.AuditEntries" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vendor">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="AuditEntry">
+        <PropertyRef Name="Vendor_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="HOAAuditEntry">
+    <End Role="HOA" Type="PropMgmtDB.Store.HOAs" Multiplicity="0..1" />
+    <End Role="AuditEntry" Type="PropMgmtDB.Store.AuditEntries" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HOA">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="AuditEntry">
+        <PropertyRef Name="HOA_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PropertyManagerAuditEntry">
+    <End Role="PropertyManager" Type="PropMgmtDB.Store.PropertyManagers" Multiplicity="0..1" />
+    <End Role="AuditEntry" Type="PropMgmtDB.Store.AuditEntries" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PropertyManager">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="AuditEntry">
+        <PropertyRef Name="PropertyManager_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OwnerAuditEntry">
+    <End Role="Owner" Type="PropMgmtDB.Store.Owners" Multiplicity="0..1" />
+    <End Role="AuditEntry" Type="PropMgmtDB.Store.AuditEntries" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Owner">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="AuditEntry">
+        <PropertyRef Name="Owner_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OwnersContact_Owners">
+    <End Role="Owners" Type="PropMgmtDB.Store.Owners" Multiplicity="1" />
+    <End Role="OwnersContact" Type="PropMgmtDB.Store.OwnersContact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Owners">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="OwnersContact">
+        <PropertyRef Name="OwnersContact_Contact_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OwnersContact_Contact">
+    <End Role="OwnersContact" Type="PropMgmtDB.Store.OwnersContact" Multiplicity="*" />
+    <End Role="Contact" Type="PropMgmtDB.Store.Contacts" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Contact">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="OwnersContact">
+        <PropertyRef Name="Contacts_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VendorsContact_Vendors">
+    <End Role="Vendors" Type="PropMgmtDB.Store.Vendors" Multiplicity="1" />
+    <End Role="VendorsContact" Type="PropMgmtDB.Store.VendorsContact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vendors">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="VendorsContact">
+        <PropertyRef Name="VendorsContact_Contact_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VendorsContact_Contact">
+    <End Role="VendorsContact" Type="PropMgmtDB.Store.VendorsContact" Multiplicity="*" />
+    <End Role="Contact" Type="PropMgmtDB.Store.Contacts" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Contact">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="VendorsContact">
+        <PropertyRef Name="Contacts_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HOAsContact_HOAs">
+    <End Role="HOAs" Type="PropMgmtDB.Store.HOAs" Multiplicity="1" />
+    <End Role="HOAsContact" Type="PropMgmtDB.Store.HOAsContact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HOAs">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="HOAsContact">
+        <PropertyRef Name="HOAsContact_Contact_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HOAsContact_Contact">
+    <End Role="HOAsContact" Type="PropMgmtDB.Store.HOAsContact" Multiplicity="*" />
+    <End Role="Contact" Type="PropMgmtDB.Store.Contacts" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Contact">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="HOAsContact">
+        <PropertyRef Name="Contacts_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PropertyManagersContact_PropertyManagers">
+    <End Role="PropertyManagers" Type="PropMgmtDB.Store.PropertyManagers" Multiplicity="1" />
+    <End Role="PropertyManagersContact" Type="PropMgmtDB.Store.PropertyManagersContact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PropertyManagers">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="PropertyManagersContact">
+        <PropertyRef Name="PropertyManagersContact_Contact_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PropertyManagersContact_Contact">
+    <End Role="PropertyManagersContact" Type="PropMgmtDB.Store.PropertyManagersContact" Multiplicity="*" />
+    <End Role="Contact" Type="PropMgmtDB.Store.Contacts" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Contact">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="PropertyManagersContact">
+        <PropertyRef Name="Contacts_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="PropMgmtDB" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="PropMgmtDBContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Owners" EntityType="PropMgmtDB.Owner" />
+          <EntitySet Name="Properties" EntityType="PropMgmtDB.Property" />
+          <EntitySet Name="Tenants" EntityType="PropMgmtDB.Tenant" />
+          <EntitySet Name="ParkingStalls" EntityType="PropMgmtDB.ParkingStall" />
+          <EntitySet Name="ServiceCalls" EntityType="PropMgmtDB.ServiceCall" />
+          <EntitySet Name="Vendors" EntityType="PropMgmtDB.Vendor" />
+          <EntitySet Name="GateCodes" EntityType="PropMgmtDB.GateCode" />
+          <EntitySet Name="Vehicles" EntityType="PropMgmtDB.Vehicle" />
+          <EntitySet Name="HOAs" EntityType="PropMgmtDB.HOA" />
+          <EntitySet Name="Contacts" EntityType="PropMgmtDB.Contact" />
+          <EntitySet Name="PropertyManagers" EntityType="PropMgmtDB.PropertyManager" />
+          <EntitySet Name="HOA_PropertyManagerHistories" EntityType="PropMgmtDB.HOA_PropertyManagerHistory" />
+          <EntitySet Name="UtilitiesPaymentHistories" EntityType="PropMgmtDB.UtilitiesPaymentHistory" />
+          <AssociationSet Name="PropertiesTenants" Association="PropMgmtDB.PropertiesTenants">
+            <End Role="Properties" EntitySet="Properties" />
+            <End Role="Tenants" EntitySet="Tenants" />
+          </AssociationSet>
+          <AssociationSet Name="ContactTenants" Association="PropMgmtDB.ContactTenants">
+            <End Role="Contact" EntitySet="Contacts" />
+            <End Role="Tenants" EntitySet="Tenants" />
+          </AssociationSet>
+          <AssociationSet Name="OwnersContact" Association="PropMgmtDB.OwnersContact">
+            <End Role="Owners" EntitySet="Owners" />
+            <End Role="Contact" EntitySet="Contacts" />
+          </AssociationSet>
+          <AssociationSet Name="VendorsContact" Association="PropMgmtDB.VendorsContact">
+            <End Role="Vendors" EntitySet="Vendors" />
+            <End Role="Contact" EntitySet="Contacts" />
+          </AssociationSet>
+          <AssociationSet Name="HOAsContact" Association="PropMgmtDB.HOAsContact">
+            <End Role="HOAs" EntitySet="HOAs" />
+            <End Role="Contact" EntitySet="Contacts" />
+          </AssociationSet>
+          <AssociationSet Name="PropertyManagersContact" Association="PropMgmtDB.PropertyManagersContact">
+            <End Role="PropertyManagers" EntitySet="PropertyManagers" />
+            <End Role="Contact" EntitySet="Contacts" />
+          </AssociationSet>
+          <AssociationSet Name="PropertiesServiceCalls" Association="PropMgmtDB.PropertiesServiceCalls">
+            <End Role="Properties" EntitySet="Properties" />
+            <End Role="ServiceCalls" EntitySet="ServiceCalls" />
+          </AssociationSet>
+          <AssociationSet Name="UtilitiesPaymentHistoryUtilitiesTypes" Association="PropMgmtDB.UtilitiesPaymentHistoryUtilitiesTypes">
+            <End Role="UtilitiesPaymentHistory" EntitySet="UtilitiesPaymentHistories" />
+            <End Role="UtilitiesTypes" EntitySet="UtilitiesTypes" />
+          </AssociationSet>
+          <AssociationSet Name="PropertiesGateCodes" Association="PropMgmtDB.PropertiesGateCodes">
+            <End Role="Properties" EntitySet="Properties" />
+            <End Role="GateCodes" EntitySet="GateCodes" />
+          </AssociationSet>
+          <AssociationSet Name="PropertiesParkingStalls" Association="PropMgmtDB.PropertiesParkingStalls">
+            <End Role="Properties" EntitySet="Properties" />
+            <End Role="ParkingStalls" EntitySet="ParkingStalls" />
+          </AssociationSet>
+          <AssociationSet Name="PropertiesUtilitiesPaymentHistory" Association="PropMgmtDB.PropertiesUtilitiesPaymentHistory">
+            <End Role="Properties" EntitySet="Properties" />
+            <End Role="UtilitiesPaymentHistory" EntitySet="UtilitiesPaymentHistories" />
+          </AssociationSet>
+          <AssociationSet Name="TenantsVehicles" Association="PropMgmtDB.TenantsVehicles">
+            <End Role="Tenants" EntitySet="Tenants" />
+            <End Role="Vehicles" EntitySet="Vehicles" />
+          </AssociationSet>
+          <AssociationSet Name="PropertiesHOAs" Association="PropMgmtDB.PropertiesHOAs">
+            <End Role="Properties" EntitySet="Properties" />
+            <End Role="HOAs" EntitySet="HOAs" />
+          </AssociationSet>
+          <AssociationSet Name="VendorsBusinessTypes" Association="PropMgmtDB.VendorsBusinessTypes">
+            <End Role="Vendors" EntitySet="Vendors" />
+            <End Role="BusinessTypes" EntitySet="BusinessTypes" />
+          </AssociationSet>
+          <EntitySet Name="LedgerRecords" EntityType="PropMgmtDB.LedgerRecord" />
+          <AssociationSet Name="LedgerRecordDepositTypes" Association="PropMgmtDB.LedgerRecordDepositTypes">
+            <End Role="LedgerRecord" EntitySet="LedgerRecords" />
+            <End Role="DepositTypes" EntitySet="DepositTypes" />
+          </AssociationSet>
+          <AssociationSet Name="LedgerRecordPaymentTypes" Association="PropMgmtDB.LedgerRecordPaymentTypes">
+            <End EntitySet="LedgerRecords" Role="LedgerRecord" />
+            <End EntitySet="PaymentTypes" Role="PaymentTypes" />
+          </AssociationSet>
+          <AssociationSet Name="TenantsLedgerRecord" Association="PropMgmtDB.TenantsLedgerRecord">
+            <End Role="Tenants" EntitySet="Tenants" />
+            <End Role="LedgerRecord" EntitySet="LedgerRecords" />
+          </AssociationSet>
+          <AssociationSet Name="OwnersLedgerRecord" Association="PropMgmtDB.OwnersLedgerRecord">
+            <End Role="Owners" EntitySet="Owners" />
+            <End Role="LedgerRecord" EntitySet="LedgerRecords" />
+          </AssociationSet>
+          <AssociationSet Name="VendorsLedgerRecord" Association="PropMgmtDB.VendorsLedgerRecord">
+            <End Role="Vendors" EntitySet="Vendors" />
+            <End Role="LedgerRecord" EntitySet="LedgerRecords" />
+          </AssociationSet>
+          <AssociationSet Name="HOAsLedgerRecord" Association="PropMgmtDB.HOAsLedgerRecord">
+            <End Role="HOAs" EntitySet="HOAs" />
+            <End Role="LedgerRecord" EntitySet="LedgerRecords" />
+          </AssociationSet>
+          <AssociationSet Name="PropertyManagersLedgerRecord" Association="PropMgmtDB.PropertyManagersLedgerRecord">
+            <End Role="PropertyManagers" EntitySet="PropertyManagers" />
+            <End Role="LedgerRecord" EntitySet="LedgerRecords" />
+          </AssociationSet>
+          <AssociationSet Name="LedgerRecordChargeTypes" Association="PropMgmtDB.LedgerRecordChargeTypes">
+            <End Role="LedgerRecord" EntitySet="LedgerRecords" />
+            <End Role="ChargeTypes" EntitySet="ChargeTypes" />
+          </AssociationSet>
+          <EntitySet Name="PaymentTypes" EntityType="PropMgmtDB.PaymentType" />
+          <EntitySet Name="ChargeTypes" EntityType="PropMgmtDB.ChargeType" />
+          <EntitySet Name="BusinessTypes" EntityType="PropMgmtDB.BusinessType" />
+          <EntitySet Name="UtilitiesTypes" EntityType="PropMgmtDB.UtilitiesType" />
+          <EntitySet Name="DepositTypes" EntityType="PropMgmtDB.DepositType" />
+          <AssociationSet Name="PropertiesOwners" Association="PropMgmtDB.PropertiesOwners">
+            <End Role="Properties" EntitySet="Properties" />
+            <End Role="Owners" EntitySet="Owners" />
+          </AssociationSet>
+          <AssociationSet Name="VendorServiceCall" Association="PropMgmtDB.VendorServiceCall">
+            <End Role="Vendor" EntitySet="Vendors" />
+            <End Role="ServiceCall" EntitySet="ServiceCalls" />
+          </AssociationSet>
+          <EntitySet Name="Correspondences" EntityType="PropMgmtDB.Correspondence" />
+          <AssociationSet Name="HOAHOA_PropertyManagerHistory" Association="PropMgmtDB.HOAHOA_PropertyManagerHistory">
+            <End Role="HOA" EntitySet="HOAs" />
+            <End Role="HOA_PropertyManagerHistory" EntitySet="HOA_PropertyManagerHistories" />
+          </AssociationSet>
+          <AssociationSet Name="PropertyManagerHOA_PropertyManagerHistory" Association="PropMgmtDB.PropertyManagerHOA_PropertyManagerHistory">
+            <End Role="PropertyManager" EntitySet="PropertyManagers" />
+            <End Role="HOA_PropertyManagerHistory" EntitySet="HOA_PropertyManagerHistories" />
+          </AssociationSet>
+          <AssociationSet Name="TenantCorrespondence" Association="PropMgmtDB.TenantCorrespondence">
+            <End Role="Tenant" EntitySet="Tenants" />
+            <End Role="Correspondence" EntitySet="Correspondences" />
+          </AssociationSet>
+          <EntitySet Name="Files" EntityType="PropMgmtDB.File" />
+          <EntitySet Name="FileContainers" EntityType="PropMgmtDB.FileContainer" />
+          <AssociationSet Name="FileContainerFile" Association="PropMgmtDB.FileContainerFile">
+            <End Role="FileContainer" EntitySet="FileContainers" />
+            <End Role="File" EntitySet="Files" />
+          </AssociationSet>
+          <AssociationSet Name="TenantFileContainer" Association="PropMgmtDB.TenantFileContainer">
+            <End Role="Tenant" EntitySet="Tenants" />
+            <End Role="FileContainer" EntitySet="FileContainers" />
+          </AssociationSet>
+          <AssociationSet Name="PropertyFileContainer" Association="PropMgmtDB.PropertyFileContainer">
+            <End Role="Property" EntitySet="Properties" />
+            <End Role="FileContainer" EntitySet="FileContainers" />
+          </AssociationSet>
+          <AssociationSet Name="VendorFileContainer" Association="PropMgmtDB.VendorFileContainer">
+            <End Role="Vendor" EntitySet="Vendors" />
+            <End Role="FileContainer" EntitySet="FileContainers" />
+          </AssociationSet>
+          <AssociationSet Name="HOAFileContainer" Association="PropMgmtDB.HOAFileContainer">
+            <End Role="HOA" EntitySet="HOAs" />
+            <End Role="FileContainer" EntitySet="FileContainers" />
+          </AssociationSet>
+          <AssociationSet Name="OwnerFileContainer" Association="PropMgmtDB.OwnerFileContainer">
+            <End Role="Owner" EntitySet="Owners" />
+            <End Role="FileContainer" EntitySet="FileContainers" />
+          </AssociationSet>
+          <AssociationSet Name="PropertyManagerFileContainer" Association="PropMgmtDB.PropertyManagerFileContainer">
+            <End Role="PropertyManager" EntitySet="PropertyManagers" />
+            <End Role="FileContainer" EntitySet="FileContainers" />
+          </AssociationSet>
+          <EntitySet Name="AuditEntries" EntityType="PropMgmtDB.AuditEntry" />
+          <AssociationSet Name="PropertyAuditEntry" Association="PropMgmtDB.PropertyAuditEntry">
+            <End Role="Property" EntitySet="Properties" />
+            <End Role="AuditEntry" EntitySet="AuditEntries" />
+          </AssociationSet>
+          <AssociationSet Name="TenantAuditEntry" Association="PropMgmtDB.TenantAuditEntry">
+            <End Role="Tenant" EntitySet="Tenants" />
+            <End Role="AuditEntry" EntitySet="AuditEntries" />
+          </AssociationSet>
+          <AssociationSet Name="VendorAuditEntry" Association="PropMgmtDB.VendorAuditEntry">
+            <End Role="Vendor" EntitySet="Vendors" />
+            <End Role="AuditEntry" EntitySet="AuditEntries" />
+          </AssociationSet>
+          <AssociationSet Name="HOAAuditEntry" Association="PropMgmtDB.HOAAuditEntry">
+            <End Role="HOA" EntitySet="HOAs" />
+            <End Role="AuditEntry" EntitySet="AuditEntries" />
+          </AssociationSet>
+          <AssociationSet Name="PropertyManagerAuditEntry" Association="PropMgmtDB.PropertyManagerAuditEntry">
+            <End Role="PropertyManager" EntitySet="PropertyManagers" />
+            <End Role="AuditEntry" EntitySet="AuditEntries" />
+          </AssociationSet>
+          <AssociationSet Name="OwnerAuditEntry" Association="PropMgmtDB.OwnerAuditEntry">
+            <End Role="Owner" EntitySet="Owners" />
+            <End Role="AuditEntry" EntitySet="AuditEntries" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Owner">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="company_name" Type="String" Nullable="false" />
+          <NavigationProperty Name="Contacts" Relationship="PropMgmtDB.OwnersContact" FromRole="Owners" ToRole="Contact" />
+          <NavigationProperty Name="LedgerRecords" Relationship="PropMgmtDB.OwnersLedgerRecord" FromRole="Owners" ToRole="LedgerRecord" />
+          <NavigationProperty Name="Properties" Relationship="PropMgmtDB.PropertiesOwners" FromRole="Owners" ToRole="Properties" />
+          <NavigationProperty Name="FileContainers" Relationship="PropMgmtDB.OwnerFileContainer" FromRole="Owner" ToRole="FileContainer" />
+          <NavigationProperty Name="AuditEntries" Relationship="PropMgmtDB.OwnerAuditEntry" FromRole="Owner" ToRole="AuditEntry" />
+          </EntityType>
+        <EntityType Name="Property">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="address1" Type="String" Nullable="false" />
+          <Property Name="city" Type="String" Nullable="false" />
+          <Property Name="state" Type="String" Nullable="false" />
+          <Property Name="zip" Type="String" Nullable="false" />
+          <Property Name="address2" Type="String" Nullable="true" />
+          <Property Name="mailbox_info" Type="String" Nullable="true" />
+          <Property Name="owner_pays_utilities" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Tenants" Relationship="PropMgmtDB.PropertiesTenants" FromRole="Properties" ToRole="Tenants" />
+          <NavigationProperty Name="ServiceCalls" Relationship="PropMgmtDB.PropertiesServiceCalls" FromRole="Properties" ToRole="ServiceCalls" />
+          <NavigationProperty Name="GateCodes" Relationship="PropMgmtDB.PropertiesGateCodes" FromRole="Properties" ToRole="GateCodes" />
+          <NavigationProperty Name="ParkingStalls" Relationship="PropMgmtDB.PropertiesParkingStalls" FromRole="Properties" ToRole="ParkingStalls" />
+          <NavigationProperty Name="UtilitiesPaymentHistories" Relationship="PropMgmtDB.PropertiesUtilitiesPaymentHistory" FromRole="Properties" ToRole="UtilitiesPaymentHistory" />
+          <NavigationProperty Name="HOA" Relationship="PropMgmtDB.PropertiesHOAs" FromRole="Properties" ToRole="HOAs" />
+          <NavigationProperty Name="Owner" Relationship="PropMgmtDB.PropertiesOwners" FromRole="Properties" ToRole="Owners" />
+          <Property Name="hoa_id" Type="Int32" Nullable="true" />
+          <Property Name="owner_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="FileContainers" Relationship="PropMgmtDB.PropertyFileContainer" FromRole="Property" ToRole="FileContainer" />
+          <NavigationProperty Name="AuditEntries" Relationship="PropMgmtDB.PropertyAuditEntry" FromRole="Property" ToRole="AuditEntry" />
+        </EntityType>
+        <EntityType Name="Tenant">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="lease_start" Type="DateTime" Nullable="false" />
+          <Property Name="lease_end" Type="DateTime" Nullable="false" />
+          <Property Name="rent_amt" Type="Int32" Nullable="false" />
+          <Property Name="section8" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Property" Relationship="PropMgmtDB.PropertiesTenants" FromRole="Tenants" ToRole="Properties" />
+          <Property Name="property_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Contact" Relationship="PropMgmtDB.ContactTenants" FromRole="Tenants" ToRole="Contact" />
+          <Property Name="contact_id" Type="Int32" Nullable="false" DefaultValue="0" />
+          <NavigationProperty Name="Vehicles" Relationship="PropMgmtDB.TenantsVehicles" FromRole="Tenants" ToRole="Vehicles" />
+          <NavigationProperty Name="LedgerRecords" Relationship="PropMgmtDB.TenantsLedgerRecord" FromRole="Tenants" ToRole="LedgerRecord" />
+          <NavigationProperty Name="Correspondences" Relationship="PropMgmtDB.TenantCorrespondence" FromRole="Tenant" ToRole="Correspondence" />
+          <NavigationProperty Name="FileContainers" Relationship="PropMgmtDB.TenantFileContainer" FromRole="Tenant" ToRole="FileContainer" />
+          <NavigationProperty Name="AuditEntries" Relationship="PropMgmtDB.TenantAuditEntry" FromRole="Tenant" ToRole="AuditEntry" />
+          </EntityType>
+        <EntityType Name="ParkingStall">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="property_id" />
+          </Key>
+          <Property Name="stall" Type="String" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Property" Relationship="PropMgmtDB.PropertiesParkingStalls" FromRole="ParkingStalls" ToRole="Properties" />
+          <Property Name="property_id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ServiceCall">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="time_placed" Type="DateTime" Nullable="false" />
+          <Property Name="time_completed" Type="DateTime" Nullable="true" />
+          <NavigationProperty Name="Property" Relationship="PropMgmtDB.PropertiesServiceCalls" FromRole="ServiceCalls" ToRole="Properties" />
+          <Property Name="summary" Type="String" Nullable="false" />
+          <Property Name="notes" Type="String" Nullable="true" />
+          <Property Name="invoice_nbr" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <NavigationProperty Name="Vendor" Relationship="PropMgmtDB.VendorServiceCall" FromRole="ServiceCall" ToRole="Vendor" />
+          <Property Name="vendor_id" Type="Int32" Nullable="true" />
+          <Property Name="amount_due" Type="Int32" Nullable="true" />
+          <Property Name="next_eta" Type="DateTime" Nullable="true" />
+          <Property Name="property_id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Vendor">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="company_name" Type="String" Nullable="false" />
+          <Property Name="address1" Type="String" Nullable="false" />
+          <Property Name="city" Type="String" Nullable="false" />
+          <Property Name="state" Type="String" Nullable="false" />
+          <Property Name="zip" Type="String" Nullable="false" />
+          <Property Name="phone1" Type="String" Nullable="false" />
+          <Property Name="phone2" Type="String" Nullable="true" />
+          <Property Name="address2" Type="String" Nullable="true" />
+          <NavigationProperty Name="Contacts" Relationship="PropMgmtDB.VendorsContact" FromRole="Vendors" ToRole="Contact" />
+          <NavigationProperty Name="BusinessType" Relationship="PropMgmtDB.VendorsBusinessTypes" FromRole="Vendors" ToRole="BusinessTypes" />
+          <Property Name="fax" Type="String" Nullable="true" />
+          <Property Name="active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="LedgerRecords" Relationship="PropMgmtDB.VendorsLedgerRecord" FromRole="Vendors" ToRole="LedgerRecord" />
+          <NavigationProperty Name="ServiceCalls" Relationship="PropMgmtDB.VendorServiceCall" FromRole="Vendor" ToRole="ServiceCall" />
+          <NavigationProperty Name="FileContainers" Relationship="PropMgmtDB.VendorFileContainer" FromRole="Vendor" ToRole="FileContainer" />
+          <NavigationProperty Name="AuditEntries" Relationship="PropMgmtDB.VendorAuditEntry" FromRole="Vendor" ToRole="AuditEntry" />
+        </EntityType>
+        <EntityType Name="GateCode">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="property_id" />
+          </Key>
+          <Property Name="code" Type="String" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Property" Relationship="PropMgmtDB.PropertiesGateCodes" FromRole="GateCodes" ToRole="Properties" />
+          <Property Name="property_id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DepositType">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="type" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Vehicle">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="license_plate" Type="String" Nullable="false" />
+          <Property Name="make" Type="String" Nullable="false" />
+          <Property Name="model" Type="String" Nullable="false" />
+          <Property Name="year" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Tenant" Relationship="PropMgmtDB.TenantsVehicles" FromRole="Vehicles" ToRole="Tenants" />
+          <Property Name="tenant_id" Type="Int32" Nullable="false" />
+          <Property Name="color" Type="String" Nullable="true" />
+        </EntityType>
+        <EntityType Name="HOA">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="company_name" Type="String" Nullable="false" />
+          <Property Name="address1" Type="String" Nullable="false" />
+          <Property Name="city" Type="String" Nullable="false" />
+          <Property Name="state" Type="String" Nullable="false" />
+          <Property Name="zip" Type="String" Nullable="false" />
+          <Property Name="phone1" Type="String" Nullable="false" />
+          <Property Name="phone2" Type="String" Nullable="true" />
+          <Property Name="address2" Type="String" Nullable="true" />
+          <NavigationProperty Name="Contacts" Relationship="PropMgmtDB.HOAsContact" FromRole="HOAs" ToRole="Contact" />
+          <NavigationProperty Name="Properties" Relationship="PropMgmtDB.PropertiesHOAs" FromRole="HOAs" ToRole="Properties" />
+          <NavigationProperty Name="LedgerRecords" Relationship="PropMgmtDB.HOAsLedgerRecord" FromRole="HOAs" ToRole="LedgerRecord" />
+          <Property Name="fax" Type="String" Nullable="true" />
+          <NavigationProperty Name="HOA_PropertyManagerHistory" Relationship="PropMgmtDB.HOAHOA_PropertyManagerHistory" FromRole="HOA" ToRole="HOA_PropertyManagerHistory" />
+          <NavigationProperty Name="FileContainers" Relationship="PropMgmtDB.HOAFileContainer" FromRole="HOA" ToRole="FileContainer" />
+          <NavigationProperty Name="AuditEntries" Relationship="PropMgmtDB.HOAAuditEntry" FromRole="HOA" ToRole="AuditEntry" />
+        </EntityType>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="address1" Type="String" Nullable="false" />
+          <Property Name="city" Type="String" Nullable="false" />
+          <Property Name="middle_initial" Type="String" Nullable="true" />
+          <Property Name="first_name" Type="String" Nullable="false" />
+          <Property Name="last_name" Type="String" Nullable="false" />
+          <Property Name="state" Type="String" Nullable="false" />
+          <Property Name="zip" Type="String" Nullable="false" />
+          <Property Name="phone1" Type="String" Nullable="false" />
+          <Property Name="phone2" Type="String" Nullable="true" />
+          <Property Name="address2" Type="String" Nullable="true" />
+          <Property Name="email" Type="String" Nullable="true" />
+          <Property Name="fax" Type="String" Nullable="true" />
+        </EntityType>
+        <EntityType Name="PropertyManager">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="company_name" Type="String" Nullable="false" />
+          <Property Name="address1" Type="String" Nullable="false" />
+          <Property Name="city" Type="String" Nullable="false" />
+          <Property Name="state" Type="String" Nullable="false" />
+          <Property Name="zip" Type="String" Nullable="false" />
+          <Property Name="phone1" Type="String" Nullable="false" />
+          <Property Name="phone2" Type="String" Nullable="true" />
+          <Property Name="address2" Type="String" Nullable="true" />
+          <NavigationProperty Name="Contacts" Relationship="PropMgmtDB.PropertyManagersContact" FromRole="PropertyManagers" ToRole="Contact" />
+          <Property Name="fax" Type="String" Nullable="true" />
+          <NavigationProperty Name="LedgerRecords" Relationship="PropMgmtDB.PropertyManagersLedgerRecord" FromRole="PropertyManagers" ToRole="LedgerRecord" />
+          <NavigationProperty Name="HOA_PropertyManagerHistory" Relationship="PropMgmtDB.PropertyManagerHOA_PropertyManagerHistory" FromRole="PropertyManager" ToRole="HOA_PropertyManagerHistory" />
+          <NavigationProperty Name="FileContainers" Relationship="PropMgmtDB.PropertyManagerFileContainer" FromRole="PropertyManager" ToRole="FileContainer" />
+          <NavigationProperty Name="AuditEntries" Relationship="PropMgmtDB.PropertyManagerAuditEntry" FromRole="PropertyManager" ToRole="AuditEntry" />
+        </EntityType>
+        <EntityType Name="HOA_PropertyManagerHistory">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="date_start" Type="DateTime" Nullable="false" />
+          <Property Name="date_end" Type="DateTime" Nullable="true" />
+          <NavigationProperty Name="HOA" Relationship="PropMgmtDB.HOAHOA_PropertyManagerHistory" FromRole="HOA_PropertyManagerHistory" ToRole="HOA" />
+          <Property Name="hoa_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="PropertyManager" Relationship="PropMgmtDB.PropertyManagerHOA_PropertyManagerHistory" FromRole="HOA_PropertyManagerHistory" ToRole="PropertyManager" />
+          <Property Name="property_manager_id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UtilitiesPaymentHistory">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="due_date" Type="DateTime" Nullable="false" />
+          <Property Name="transaction_date" Type="DateTime" Nullable="false" />
+          <Property Name="amount_paid" Type="Decimal" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="UtilitiesType" Relationship="PropMgmtDB.UtilitiesPaymentHistoryUtilitiesTypes" FromRole="UtilitiesPaymentHistory" ToRole="UtilitiesTypes" />
+          <NavigationProperty Name="Property" Relationship="PropMgmtDB.PropertiesUtilitiesPaymentHistory" FromRole="UtilitiesPaymentHistory" ToRole="Properties" />
+          <Property Name="property_id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UtilitiesType">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="type" Type="String" Nullable="false" />
+        </EntityType>
+        <Association Name="PropertiesTenants">
+          <End Type="PropMgmtDB.Property" Role="Properties" Multiplicity="1" />
+          <End Type="PropMgmtDB.Tenant" Role="Tenants" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Properties">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Tenants">
+              <PropertyRef Name="property_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ContactTenants">
+          <End Type="PropMgmtDB.Contact" Role="Contact" Multiplicity="1" />
+          <End Type="PropMgmtDB.Tenant" Role="Tenants" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contact">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Tenants">
+              <PropertyRef Name="contact_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="OwnersContact">
+          <End Type="PropMgmtDB.Owner" Role="Owners" Multiplicity="*" />
+          <End Type="PropMgmtDB.Contact" Role="Contact" Multiplicity="*" />
+        </Association>
+        <Association Name="VendorsContact">
+          <End Type="PropMgmtDB.Vendor" Role="Vendors" Multiplicity="*" />
+          <End Type="PropMgmtDB.Contact" Role="Contact" Multiplicity="*" />
+        </Association>
+        <Association Name="HOAsContact">
+          <End Type="PropMgmtDB.HOA" Role="HOAs" Multiplicity="*" />
+          <End Type="PropMgmtDB.Contact" Role="Contact" Multiplicity="*" />
+        </Association>
+        <Association Name="PropertyManagersContact">
+          <End Type="PropMgmtDB.PropertyManager" Role="PropertyManagers" Multiplicity="*" />
+          <End Type="PropMgmtDB.Contact" Role="Contact" Multiplicity="*" />
+        </Association>
+        <Association Name="PropertiesServiceCalls">
+          <End Type="PropMgmtDB.Property" Role="Properties" Multiplicity="1" />
+          <End Type="PropMgmtDB.ServiceCall" Role="ServiceCalls" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Properties">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ServiceCalls">
+              <PropertyRef Name="property_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UtilitiesPaymentHistoryUtilitiesTypes">
+          <End Type="PropMgmtDB.UtilitiesPaymentHistory" Role="UtilitiesPaymentHistory" Multiplicity="0..1" />
+          <End Type="PropMgmtDB.UtilitiesType" Role="UtilitiesTypes" Multiplicity="1" />
+        </Association>
+        <Association Name="PropertiesGateCodes">
+          <End Type="PropMgmtDB.Property" Role="Properties" Multiplicity="1" />
+          <End Type="PropMgmtDB.GateCode" Role="GateCodes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Properties">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="GateCodes">
+              <PropertyRef Name="property_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PropertiesParkingStalls">
+          <End Type="PropMgmtDB.Property" Role="Properties" Multiplicity="1" />
+          <End Type="PropMgmtDB.ParkingStall" Role="ParkingStalls" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Properties">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ParkingStalls">
+              <PropertyRef Name="property_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PropertiesUtilitiesPaymentHistory">
+          <End Type="PropMgmtDB.Property" Role="Properties" Multiplicity="1" />
+          <End Type="PropMgmtDB.UtilitiesPaymentHistory" Role="UtilitiesPaymentHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Properties">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="UtilitiesPaymentHistory">
+              <PropertyRef Name="property_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TenantsVehicles">
+          <End Type="PropMgmtDB.Tenant" Role="Tenants" Multiplicity="1" />
+          <End Type="PropMgmtDB.Vehicle" Role="Vehicles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tenants">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Vehicles">
+              <PropertyRef Name="tenant_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PropertiesHOAs">
+          <End Type="PropMgmtDB.Property" Role="Properties" Multiplicity="*" />
+          <End Type="PropMgmtDB.HOA" Role="HOAs" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="HOAs">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Properties">
+              <PropertyRef Name="hoa_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="BusinessType">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="type" Type="String" Nullable="false" />
+        </EntityType>
+        <Association Name="VendorsBusinessTypes">
+          <End Type="PropMgmtDB.Vendor" Role="Vendors" Multiplicity="0..1" />
+          <End Type="PropMgmtDB.BusinessType" Role="BusinessTypes" Multiplicity="1" />
+        </Association>
+        <EntityType Name="LedgerRecord">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="DepositType" Relationship="PropMgmtDB.LedgerRecordDepositTypes" FromRole="LedgerRecord" ToRole="DepositTypes" />
+          <Property Name="amount" Type="Decimal" Nullable="false" />
+          <Property Name="due_date" Type="DateTime" Nullable="true" />
+          <Property Name="transaction_date" Type="DateTime" Nullable="true" />
+          <NavigationProperty Name="PaymentType" Relationship="PropMgmtDB.LedgerRecordPaymentTypes" FromRole="LedgerRecord" ToRole="PaymentTypes" />
+          <Property Name="notes" Type="String" Nullable="true" />
+          <NavigationProperty Name="Tenant" Relationship="PropMgmtDB.TenantsLedgerRecord" FromRole="LedgerRecord" ToRole="Tenants" />
+          <NavigationProperty Name="Owner" Relationship="PropMgmtDB.OwnersLedgerRecord" FromRole="LedgerRecord" ToRole="Owners" />
+          <NavigationProperty Name="Vendor" Relationship="PropMgmtDB.VendorsLedgerRecord" FromRole="LedgerRecord" ToRole="Vendors" />
+          <NavigationProperty Name="HOA" Relationship="PropMgmtDB.HOAsLedgerRecord" FromRole="LedgerRecord" ToRole="HOAs" />
+          <NavigationProperty Name="PropertyManager" Relationship="PropMgmtDB.PropertyManagersLedgerRecord" FromRole="LedgerRecord" ToRole="PropertyManagers" />
+          <NavigationProperty Name="ChargeType" Relationship="PropMgmtDB.LedgerRecordChargeTypes" FromRole="LedgerRecord" ToRole="ChargeTypes" />
+        </EntityType>
+        <Association Name="LedgerRecordDepositTypes">
+          <End Type="PropMgmtDB.LedgerRecord" Role="LedgerRecord" Multiplicity="*" />
+          <End Type="PropMgmtDB.DepositType" Role="DepositTypes" Multiplicity="0..1" />
+        </Association>
+        <EntityType Name="PaymentType">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="type" Type="String" Nullable="false" />
+        </EntityType>
+        <Association Name="LedgerRecordPaymentTypes">
+          <End Type="PropMgmtDB.LedgerRecord" Multiplicity="*" Role="LedgerRecord" />
+          <End Type="PropMgmtDB.PaymentType" Multiplicity="0..1" Role="PaymentTypes" />
+        </Association>
+        <Association Name="TenantsLedgerRecord">
+          <End Type="PropMgmtDB.Tenant" Role="Tenants" Multiplicity="0..1" />
+          <End Type="PropMgmtDB.LedgerRecord" Role="LedgerRecord" Multiplicity="*" />
+        </Association>
+        <Association Name="OwnersLedgerRecord">
+          <End Type="PropMgmtDB.Owner" Role="Owners" Multiplicity="0..1" />
+          <End Type="PropMgmtDB.LedgerRecord" Role="LedgerRecord" Multiplicity="*" />
+        </Association>
+        <Association Name="VendorsLedgerRecord">
+          <End Type="PropMgmtDB.Vendor" Role="Vendors" Multiplicity="0..1" />
+          <End Type="PropMgmtDB.LedgerRecord" Role="LedgerRecord" Multiplicity="*" />
+        </Association>
+        <Association Name="HOAsLedgerRecord">
+          <End Type="PropMgmtDB.HOA" Role="HOAs" Multiplicity="0..1" />
+          <End Type="PropMgmtDB.LedgerRecord" Role="LedgerRecord" Multiplicity="*" />
+        </Association>
+        <Association Name="PropertyManagersLedgerRecord">
+          <End Type="PropMgmtDB.PropertyManager" Role="PropertyManagers" Multiplicity="0..1" />
+          <End Type="PropMgmtDB.LedgerRecord" Role="LedgerRecord" Multiplicity="*" />
+        </Association>
+        <EntityType Name="ChargeType">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="type" Type="String" Nullable="false" />
+        </EntityType>
+        <Association Name="LedgerRecordChargeTypes">
+          <End Type="PropMgmtDB.LedgerRecord" Role="LedgerRecord" Multiplicity="*" />
+          <End Type="PropMgmtDB.ChargeType" Role="ChargeTypes" Multiplicity="0..1" />
+        </Association>
+        <Association Name="PropertiesOwners">
+          <End Type="PropMgmtDB.Property" Role="Properties" Multiplicity="*" />
+          <End Type="PropMgmtDB.Owner" Role="Owners" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Owners">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Properties">
+              <PropertyRef Name="owner_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="VendorServiceCall">
+          <End Type="PropMgmtDB.Vendor" Role="Vendor" Multiplicity="0..1" />
+          <End Type="PropMgmtDB.ServiceCall" Role="ServiceCall" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vendor">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ServiceCall">
+              <PropertyRef Name="vendor_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Correspondence">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="time_placed" Type="DateTime" Nullable="false" />
+          <Property Name="time_completed" Type="DateTime" Nullable="true" />
+          <Property Name="summary" Type="String" Nullable="false" />
+          <Property Name="notes" Type="String" Nullable="true" />
+          <Property Name="next_eta" Type="DateTime" Nullable="true" />
+          <NavigationProperty Name="Tenant" Relationship="PropMgmtDB.TenantCorrespondence" FromRole="Correspondence" ToRole="Tenant" />
+          <Property Name="followup_notes" Type="String" Nullable="true" />
+          <Property Name="followup_required" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <Association Name="HOAHOA_PropertyManagerHistory">
+          <End Type="PropMgmtDB.HOA" Role="HOA" Multiplicity="1" />
+          <End Type="PropMgmtDB.HOA_PropertyManagerHistory" Role="HOA_PropertyManagerHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HOA">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="HOA_PropertyManagerHistory">
+              <PropertyRef Name="hoa_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PropertyManagerHOA_PropertyManagerHistory">
+          <End Type="PropMgmtDB.PropertyManager" Role="PropertyManager" Multiplicity="1" />
+          <End Type="PropMgmtDB.HOA_PropertyManagerHistory" Role="HOA_PropertyManagerHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PropertyManager">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="HOA_PropertyManagerHistory">
+              <PropertyRef Name="property_manager_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TenantCorrespondence">
+          <End Type="PropMgmtDB.Tenant" Role="Tenant" Multiplicity="0..1" />
+          <End Type="PropMgmtDB.Correspondence" Role="Correspondence" Multiplicity="*" />
+        </Association>
+        <EntityType Name="File">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="file_data" Type="Binary" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FileContainer" >
+          <Key>
+            <PropertyRef Name="file_id" />
+          </Key>
+          <NavigationProperty Name="File" Relationship="PropMgmtDB.FileContainerFile" FromRole="FileContainer" ToRole="File" />
+          <Property Name="file_name" Type="String" Nullable="false" />
+          <Property Name="date_modified" Type="DateTime" Nullable="true" />
+          <NavigationProperty Name="Tenant" Relationship="PropMgmtDB.TenantFileContainer" FromRole="FileContainer" ToRole="Tenant" />
+          <Property Name="file_id" Type="Int32" Nullable="false" />
+          <Property Name="file_size" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Property" Relationship="PropMgmtDB.PropertyFileContainer" FromRole="FileContainer" ToRole="Property" />
+          <NavigationProperty Name="Vendor" Relationship="PropMgmtDB.VendorFileContainer" FromRole="FileContainer" ToRole="Vendor" />
+          <NavigationProperty Name="HOA" Relationship="PropMgmtDB.HOAFileContainer" FromRole="FileContainer" ToRole="HOA" />
+          <NavigationProperty Name="Owner" Relationship="PropMgmtDB.OwnerFileContainer" FromRole="FileContainer" ToRole="Owner" />
+          <NavigationProperty Name="PropertyManager" Relationship="PropMgmtDB.PropertyManagerFileContainer" FromRole="FileContainer" ToRole="PropertyManager" />
+        </EntityType>
+        <Association Name="FileContainerFile">
+          <End Type="PropMgmtDB.FileContainer" Role="FileContainer" Multiplicity="1" />
+          <End Type="PropMgmtDB.File" Role="File" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="File">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FileContainer">
+              <PropertyRef Name="file_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TenantFileContainer">
+          <End Type="PropMgmtDB.Tenant" Role="Tenant" Multiplicity="0..1" />
+          <End Type="PropMgmtDB.FileContainer" Role="FileContainer" Multiplicity="*" />
+        </Association>
+        <Association Name="PropertyFileContainer">
+          <End Type="PropMgmtDB.Property" Role="Property" Multiplicity="0..1" />
+          <End Type="PropMgmtDB.FileContainer" Role="FileContainer" Multiplicity="*" />
+        </Association>
+        <Association Name="VendorFileContainer">
+          <End Type="PropMgmtDB.Vendor" Role="Vendor" Multiplicity="0..1" />
+          <End Type="PropMgmtDB.FileContainer" Role="FileContainer" Multiplicity="*" />
+        </Association>
+        <Association Name="HOAFileContainer">
+          <End Type="PropMgmtDB.HOA" Role="HOA" Multiplicity="0..1" />
+          <End Type="PropMgmtDB.FileContainer" Role="FileContainer" Multiplicity="*" />
+        </Association>
+        <Association Name="OwnerFileContainer">
+          <End Type="PropMgmtDB.Owner" Role="Owner" Multiplicity="0..1" />
+          <End Type="PropMgmtDB.FileContainer" Role="FileContainer" Multiplicity="*" />
+        </Association>
+        <Association Name="PropertyManagerFileContainer">
+          <End Type="PropMgmtDB.PropertyManager" Role="PropertyManager" Multiplicity="0..1" />
+          <End Type="PropMgmtDB.FileContainer" Role="FileContainer" Multiplicity="*" />
+        </Association>
+        <EntityType Name="AuditEntry">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="info" Type="String" Nullable="false" />
+          <Property Name="date_entered" Type="DateTime" Nullable="false" />
+          <Property Name="username" Type="String" Nullable="false" />
+          <NavigationProperty Name="Property" Relationship="PropMgmtDB.PropertyAuditEntry" FromRole="AuditEntry" ToRole="Property" />
+          <NavigationProperty Name="Tenant" Relationship="PropMgmtDB.TenantAuditEntry" FromRole="AuditEntry" ToRole="Tenant" />
+          <NavigationProperty Name="Vendor" Relationship="PropMgmtDB.VendorAuditEntry" FromRole="AuditEntry" ToRole="Vendor" />
+          <NavigationProperty Name="HOA" Relationship="PropMgmtDB.HOAAuditEntry" FromRole="AuditEntry" ToRole="HOA" />
+          <NavigationProperty Name="PropertyManager" Relationship="PropMgmtDB.PropertyManagerAuditEntry" FromRole="AuditEntry" ToRole="PropertyManager" />
+          <NavigationProperty Name="Owner" Relationship="PropMgmtDB.OwnerAuditEntry" FromRole="AuditEntry" ToRole="Owner" />
+        </EntityType>
+        <Association Name="PropertyAuditEntry">
+          <End Type="PropMgmtDB.Property" Role="Property" Multiplicity="0..1" />
+          <End Type="PropMgmtDB.AuditEntry" Role="AuditEntry" Multiplicity="*" />
+        </Association>
+        <Association Name="TenantAuditEntry">
+          <End Type="PropMgmtDB.Tenant" Role="Tenant" Multiplicity="0..1" />
+          <End Type="PropMgmtDB.AuditEntry" Role="AuditEntry" Multiplicity="*" />
+        </Association>
+        <Association Name="VendorAuditEntry">
+          <End Type="PropMgmtDB.Vendor" Role="Vendor" Multiplicity="0..1" />
+          <End Type="PropMgmtDB.AuditEntry" Role="AuditEntry" Multiplicity="*" />
+        </Association>
+        <Association Name="HOAAuditEntry">
+          <End Type="PropMgmtDB.HOA" Role="HOA" Multiplicity="0..1" />
+          <End Type="PropMgmtDB.AuditEntry" Role="AuditEntry" Multiplicity="*" />
+        </Association>
+        <Association Name="PropertyManagerAuditEntry">
+          <End Type="PropMgmtDB.PropertyManager" Role="PropertyManager" Multiplicity="0..1" />
+          <End Type="PropMgmtDB.AuditEntry" Role="AuditEntry" Multiplicity="*" />
+        </Association>
+        <Association Name="OwnerAuditEntry">
+          <End Type="PropMgmtDB.Owner" Role="Owner" Multiplicity="0..1" />
+          <End Type="PropMgmtDB.AuditEntry" Role="AuditEntry" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PropMgmtDBStoreContainer" CdmEntityContainer="PropMgmtDBContainer">
+    <EntitySetMapping Name="Owners">
+      <EntityTypeMapping TypeName="IsTypeOf(PropMgmtDB.Owner)">
+        <MappingFragment StoreEntitySet="Owners">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="company_name" ColumnName="company_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Properties">
+      <EntityTypeMapping TypeName="IsTypeOf(PropMgmtDB.Property)">
+        <MappingFragment StoreEntitySet="Properties">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="address1" ColumnName="address1" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="zip" ColumnName="zip" />
+          <ScalarProperty Name="address2" ColumnName="address2" />
+          <ScalarProperty Name="mailbox_info" ColumnName="mailbox_info" />
+          <ScalarProperty Name="owner_pays_utilities" ColumnName="owner_pays_utilities" />
+          <ScalarProperty Name="hoa_id" ColumnName="hoa_id" />
+          <ScalarProperty Name="owner_id" ColumnName="owner_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tenants">
+      <EntityTypeMapping TypeName="IsTypeOf(PropMgmtDB.Tenant)">
+        <MappingFragment StoreEntitySet="Tenants">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="lease_start" ColumnName="lease_start" />
+          <ScalarProperty Name="lease_end" ColumnName="lease_end" />
+          <ScalarProperty Name="rent_amt" ColumnName="rent_amt" />
+          <ScalarProperty Name="section8" ColumnName="section8" />
+          <ScalarProperty Name="property_id" ColumnName="property_id" />
+          <ScalarProperty Name="contact_id" ColumnName="contact_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ParkingStalls">
+      <EntityTypeMapping TypeName="IsTypeOf(PropMgmtDB.ParkingStall)">
+        <MappingFragment StoreEntitySet="ParkingStalls">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="property_id" ColumnName="property_id" />
+          <ScalarProperty Name="stall" ColumnName="stall" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ServiceCalls">
+      <EntityTypeMapping TypeName="IsTypeOf(PropMgmtDB.ServiceCall)">
+        <MappingFragment StoreEntitySet="ServiceCalls">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="time_placed" ColumnName="time_placed" />
+          <ScalarProperty Name="time_completed" ColumnName="time_completed" />
+          <ScalarProperty Name="summary" ColumnName="summary" />
+          <ScalarProperty Name="notes" ColumnName="notes" />
+          <ScalarProperty Name="invoice_nbr" ColumnName="invoice_nbr" />
+          <ScalarProperty Name="vendor_id" ColumnName="vendor_id" />
+          <ScalarProperty Name="amount_due" ColumnName="amount_due" />
+          <ScalarProperty Name="next_eta" ColumnName="next_eta" />
+          <ScalarProperty Name="property_id" ColumnName="property_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vendors">
+      <EntityTypeMapping TypeName="IsTypeOf(PropMgmtDB.Vendor)">
+        <MappingFragment StoreEntitySet="Vendors">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="company_name" ColumnName="company_name" />
+          <ScalarProperty Name="address1" ColumnName="address1" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="zip" ColumnName="zip" />
+          <ScalarProperty Name="phone1" ColumnName="phone1" />
+          <ScalarProperty Name="phone2" ColumnName="phone2" />
+          <ScalarProperty Name="address2" ColumnName="address2" />
+          <ScalarProperty Name="fax" ColumnName="fax" />
+          <ScalarProperty Name="active" ColumnName="active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GateCodes">
+      <EntityTypeMapping TypeName="IsTypeOf(PropMgmtDB.GateCode)">
+        <MappingFragment StoreEntitySet="GateCodes">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="property_id" ColumnName="property_id" />
+          <ScalarProperty Name="code" ColumnName="code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vehicles">
+      <EntityTypeMapping TypeName="IsTypeOf(PropMgmtDB.Vehicle)">
+        <MappingFragment StoreEntitySet="Vehicles">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="license_plate" ColumnName="license_plate" />
+          <ScalarProperty Name="make" ColumnName="make" />
+          <ScalarProperty Name="model" ColumnName="model" />
+          <ScalarProperty Name="year" ColumnName="year" />
+          <ScalarProperty Name="tenant_id" ColumnName="tenant_id" />
+          <ScalarProperty Name="color" ColumnName="color" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HOAs">
+      <EntityTypeMapping TypeName="IsTypeOf(PropMgmtDB.HOA)">
+        <MappingFragment StoreEntitySet="HOAs">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="company_name" ColumnName="company_name" />
+          <ScalarProperty Name="address1" ColumnName="address1" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="zip" ColumnName="zip" />
+          <ScalarProperty Name="phone1" ColumnName="phone1" />
+          <ScalarProperty Name="phone2" ColumnName="phone2" />
+          <ScalarProperty Name="address2" ColumnName="address2" />
+          <ScalarProperty Name="fax" ColumnName="fax" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contacts">
+      <EntityTypeMapping TypeName="IsTypeOf(PropMgmtDB.Contact)">
+        <MappingFragment StoreEntitySet="Contacts">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="address1" ColumnName="address1" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="middle_initial" ColumnName="middle_initial" />
+          <ScalarProperty Name="first_name" ColumnName="first_name" />
+          <ScalarProperty Name="last_name" ColumnName="last_name" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="zip" ColumnName="zip" />
+          <ScalarProperty Name="phone1" ColumnName="phone1" />
+          <ScalarProperty Name="phone2" ColumnName="phone2" />
+          <ScalarProperty Name="address2" ColumnName="address2" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="fax" ColumnName="fax" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PropertyManagers">
+      <EntityTypeMapping TypeName="IsTypeOf(PropMgmtDB.PropertyManager)">
+        <MappingFragment StoreEntitySet="PropertyManagers">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="company_name" ColumnName="company_name" />
+          <ScalarProperty Name="address1" ColumnName="address1" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="zip" ColumnName="zip" />
+          <ScalarProperty Name="phone1" ColumnName="phone1" />
+          <ScalarProperty Name="phone2" ColumnName="phone2" />
+          <ScalarProperty Name="address2" ColumnName="address2" />
+          <ScalarProperty Name="fax" ColumnName="fax" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HOA_PropertyManagerHistories">
+      <EntityTypeMapping TypeName="IsTypeOf(PropMgmtDB.HOA_PropertyManagerHistory)">
+        <MappingFragment StoreEntitySet="HOA_PropertyManagerHistories">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="date_start" ColumnName="date_start" />
+          <ScalarProperty Name="date_end" ColumnName="date_end" />
+          <ScalarProperty Name="hoa_id" ColumnName="hoa_id" />
+          <ScalarProperty Name="property_manager_id" ColumnName="property_manager_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UtilitiesPaymentHistories">
+      <EntityTypeMapping TypeName="IsTypeOf(PropMgmtDB.UtilitiesPaymentHistory)">
+        <MappingFragment StoreEntitySet="UtilitiesPaymentHistories">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="due_date" ColumnName="due_date" />
+          <ScalarProperty Name="transaction_date" ColumnName="transaction_date" />
+          <ScalarProperty Name="amount_paid" ColumnName="amount_paid" />
+          <ScalarProperty Name="property_id" ColumnName="property_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LedgerRecords">
+      <EntityTypeMapping TypeName="IsTypeOf(PropMgmtDB.LedgerRecord)">
+        <MappingFragment StoreEntitySet="LedgerRecords">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="due_date" ColumnName="due_date" />
+          <ScalarProperty Name="transaction_date" ColumnName="transaction_date" />
+          <ScalarProperty Name="notes" ColumnName="notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PaymentTypes">
+      <EntityTypeMapping TypeName="IsTypeOf(PropMgmtDB.PaymentType)">
+        <MappingFragment StoreEntitySet="PaymentTypes">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="type" ColumnName="type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChargeTypes">
+      <EntityTypeMapping TypeName="IsTypeOf(PropMgmtDB.ChargeType)">
+        <MappingFragment StoreEntitySet="ChargeTypes">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="type" ColumnName="type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BusinessTypes">
+      <EntityTypeMapping TypeName="IsTypeOf(PropMgmtDB.BusinessType)">
+        <MappingFragment StoreEntitySet="BusinessTypes">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="type" ColumnName="type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UtilitiesTypes">
+      <EntityTypeMapping TypeName="IsTypeOf(PropMgmtDB.UtilitiesType)">
+        <MappingFragment StoreEntitySet="UtilitiesTypes">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="type" ColumnName="type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DepositTypes">
+      <EntityTypeMapping TypeName="IsTypeOf(PropMgmtDB.DepositType)">
+        <MappingFragment StoreEntitySet="DepositTypes">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="type" ColumnName="type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Correspondences">
+      <EntityTypeMapping TypeName="IsTypeOf(PropMgmtDB.Correspondence)">
+        <MappingFragment StoreEntitySet="Correspondences">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="time_placed" ColumnName="time_placed" />
+          <ScalarProperty Name="time_completed" ColumnName="time_completed" />
+          <ScalarProperty Name="summary" ColumnName="summary" />
+          <ScalarProperty Name="notes" ColumnName="notes" />
+          <ScalarProperty Name="next_eta" ColumnName="next_eta" />
+          <ScalarProperty Name="followup_notes" ColumnName="followup_notes" />
+          <ScalarProperty Name="followup_required" ColumnName="followup_required" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Files">
+      <EntityTypeMapping TypeName="IsTypeOf(PropMgmtDB.File)">
+        <MappingFragment StoreEntitySet="Files">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="file_data" ColumnName="file_data" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FileContainers">
+      <EntityTypeMapping TypeName="IsTypeOf(PropMgmtDB.FileContainer)">
+        <MappingFragment StoreEntitySet="FileContainers">
+          <ScalarProperty Name="file_id" ColumnName="file_id" />
+          <ScalarProperty Name="file_name" ColumnName="file_name" />
+          <ScalarProperty Name="date_modified" ColumnName="date_modified" />
+          <ScalarProperty Name="file_size" ColumnName="file_size" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AuditEntries">
+      <EntityTypeMapping TypeName="IsTypeOf(PropMgmtDB.AuditEntry)">
+        <MappingFragment StoreEntitySet="AuditEntries">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="info" ColumnName="info" />
+          <ScalarProperty Name="date_entered" ColumnName="date_entered" />
+          <ScalarProperty Name="username" ColumnName="username" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="OwnersContact" TypeName="PropMgmtDB.OwnersContact" StoreEntitySet="OwnersContact">
+      <EndProperty Name="Owners">
+        <ScalarProperty Name="id" ColumnName="OwnersContact_Contact_id" />
+      </EndProperty>
+      <EndProperty Name="Contact">
+        <ScalarProperty Name="id" ColumnName="Contacts_id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="VendorsContact" TypeName="PropMgmtDB.VendorsContact" StoreEntitySet="VendorsContact">
+      <EndProperty Name="Vendors">
+        <ScalarProperty Name="id" ColumnName="VendorsContact_Contact_id" />
+      </EndProperty>
+      <EndProperty Name="Contact">
+        <ScalarProperty Name="id" ColumnName="Contacts_id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="HOAsContact" TypeName="PropMgmtDB.HOAsContact" StoreEntitySet="HOAsContact">
+      <EndProperty Name="HOAs">
+        <ScalarProperty Name="id" ColumnName="HOAsContact_Contact_id" />
+      </EndProperty>
+      <EndProperty Name="Contact">
+        <ScalarProperty Name="id" ColumnName="Contacts_id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PropertyManagersContact" TypeName="PropMgmtDB.PropertyManagersContact" StoreEntitySet="PropertyManagersContact">
+      <EndProperty Name="PropertyManagers">
+        <ScalarProperty Name="id" ColumnName="PropertyManagersContact_Contact_id" />
+      </EndProperty>
+      <EndProperty Name="Contact">
+        <ScalarProperty Name="id" ColumnName="Contacts_id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="UtilitiesPaymentHistoryUtilitiesTypes" TypeName="PropMgmtDB.UtilitiesPaymentHistoryUtilitiesTypes" StoreEntitySet="UtilitiesPaymentHistories">
+      <EndProperty Name="UtilitiesTypes">
+        <ScalarProperty Name="id" ColumnName="UtilitiesType_id" />
+      </EndProperty>
+      <EndProperty Name="UtilitiesPaymentHistory">
+        <ScalarProperty Name="id" ColumnName="id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="VendorsBusinessTypes" TypeName="PropMgmtDB.VendorsBusinessTypes" StoreEntitySet="Vendors">
+      <EndProperty Name="BusinessTypes">
+        <ScalarProperty Name="id" ColumnName="BusinessType_id" />
+      </EndProperty>
+      <EndProperty Name="Vendors">
+        <ScalarProperty Name="id" ColumnName="id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="LedgerRecordDepositTypes" TypeName="PropMgmtDB.LedgerRecordDepositTypes" StoreEntitySet="LedgerRecords">
+      <EndProperty Name="DepositTypes">
+        <ScalarProperty Name="id" ColumnName="DepositType_id" />
+      </EndProperty>
+      <EndProperty Name="LedgerRecord">
+        <ScalarProperty Name="id" ColumnName="id" />
+      </EndProperty>
+      <Condition ColumnName="DepositType_id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="LedgerRecordPaymentTypes" TypeName="PropMgmtDB.LedgerRecordPaymentTypes" StoreEntitySet="LedgerRecords">
+      <EndProperty Name="PaymentTypes">
+        <ScalarProperty Name="id" ColumnName="PaymentType_id" />
+      </EndProperty>
+      <EndProperty Name="LedgerRecord">
+        <ScalarProperty Name="id" ColumnName="id" />
+      </EndProperty>
+      <Condition ColumnName="PaymentType_id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="TenantsLedgerRecord" TypeName="PropMgmtDB.TenantsLedgerRecord" StoreEntitySet="LedgerRecords">
+      <EndProperty Name="Tenants">
+        <ScalarProperty Name="id" ColumnName="Tenant_id" />
+      </EndProperty>
+      <EndProperty Name="LedgerRecord">
+        <ScalarProperty Name="id" ColumnName="id" />
+      </EndProperty>
+      <Condition ColumnName="Tenant_id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="OwnersLedgerRecord" TypeName="PropMgmtDB.OwnersLedgerRecord" StoreEntitySet="LedgerRecords">
+      <EndProperty Name="Owners">
+        <ScalarProperty Name="id" ColumnName="Owner_id" />
+      </EndProperty>
+      <EndProperty Name="LedgerRecord">
+        <ScalarProperty Name="id" ColumnName="id" />
+      </EndProperty>
+      <Condition ColumnName="Owner_id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="VendorsLedgerRecord" TypeName="PropMgmtDB.VendorsLedgerRecord" StoreEntitySet="LedgerRecords">
+      <EndProperty Name="Vendors">
+        <ScalarProperty Name="id" ColumnName="Vendor_id" />
+      </EndProperty>
+      <EndProperty Name="LedgerRecord">
+        <ScalarProperty Name="id" ColumnName="id" />
+      </EndProperty>
+      <Condition ColumnName="Vendor_id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="HOAsLedgerRecord" TypeName="PropMgmtDB.HOAsLedgerRecord" StoreEntitySet="LedgerRecords">
+      <EndProperty Name="HOAs">
+        <ScalarProperty Name="id" ColumnName="HOA_id" />
+      </EndProperty>
+      <EndProperty Name="LedgerRecord">
+        <ScalarProperty Name="id" ColumnName="id" />
+      </EndProperty>
+      <Condition ColumnName="HOA_id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PropertyManagersLedgerRecord" TypeName="PropMgmtDB.PropertyManagersLedgerRecord" StoreEntitySet="LedgerRecords">
+      <EndProperty Name="PropertyManagers">
+        <ScalarProperty Name="id" ColumnName="PropertyManager_id" />
+      </EndProperty>
+      <EndProperty Name="LedgerRecord">
+        <ScalarProperty Name="id" ColumnName="id" />
+      </EndProperty>
+      <Condition ColumnName="PropertyManager_id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="LedgerRecordChargeTypes" TypeName="PropMgmtDB.LedgerRecordChargeTypes" StoreEntitySet="LedgerRecords">
+      <EndProperty Name="ChargeTypes">
+        <ScalarProperty Name="id" ColumnName="ChargeType_id" />
+      </EndProperty>
+      <EndProperty Name="LedgerRecord">
+        <ScalarProperty Name="id" ColumnName="id" />
+      </EndProperty>
+      <Condition ColumnName="ChargeType_id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="TenantCorrespondence" TypeName="PropMgmtDB.TenantCorrespondence" StoreEntitySet="Correspondences">
+      <EndProperty Name="Tenant">
+        <ScalarProperty Name="id" ColumnName="Tenant_id" />
+      </EndProperty>
+      <EndProperty Name="Correspondence">
+        <ScalarProperty Name="id" ColumnName="id" />
+      </EndProperty>
+      <Condition ColumnName="Tenant_id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="TenantFileContainer" TypeName="PropMgmtDB.TenantFileContainer" StoreEntitySet="FileContainers">
+      <EndProperty Name="Tenant">
+        <ScalarProperty Name="id" ColumnName="Tenant_id" />
+      </EndProperty>
+      <EndProperty Name="FileContainer">
+        <ScalarProperty Name="file_id" ColumnName="file_id" />
+      </EndProperty>
+      <Condition ColumnName="Tenant_id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PropertyFileContainer" TypeName="PropMgmtDB.PropertyFileContainer" StoreEntitySet="FileContainers">
+      <EndProperty Name="Property">
+        <ScalarProperty Name="id" ColumnName="Property_id" />
+      </EndProperty>
+      <EndProperty Name="FileContainer">
+        <ScalarProperty Name="file_id" ColumnName="file_id" />
+      </EndProperty>
+      <Condition ColumnName="Property_id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="VendorFileContainer" TypeName="PropMgmtDB.VendorFileContainer" StoreEntitySet="FileContainers">
+      <EndProperty Name="Vendor">
+        <ScalarProperty Name="id" ColumnName="Vendor_id" />
+      </EndProperty>
+      <EndProperty Name="FileContainer">
+        <ScalarProperty Name="file_id" ColumnName="file_id" />
+      </EndProperty>
+      <Condition ColumnName="Vendor_id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="HOAFileContainer" TypeName="PropMgmtDB.HOAFileContainer" StoreEntitySet="FileContainers">
+      <EndProperty Name="HOA">
+        <ScalarProperty Name="id" ColumnName="HOA_id" />
+      </EndProperty>
+      <EndProperty Name="FileContainer">
+        <ScalarProperty Name="file_id" ColumnName="file_id" />
+      </EndProperty>
+      <Condition ColumnName="HOA_id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="OwnerFileContainer" TypeName="PropMgmtDB.OwnerFileContainer" StoreEntitySet="FileContainers">
+      <EndProperty Name="Owner">
+        <ScalarProperty Name="id" ColumnName="Owner_id" />
+      </EndProperty>
+      <EndProperty Name="FileContainer">
+        <ScalarProperty Name="file_id" ColumnName="file_id" />
+      </EndProperty>
+      <Condition ColumnName="Owner_id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PropertyManagerFileContainer" TypeName="PropMgmtDB.PropertyManagerFileContainer" StoreEntitySet="FileContainers">
+      <EndProperty Name="PropertyManager">
+        <ScalarProperty Name="id" ColumnName="PropertyManager_id" />
+      </EndProperty>
+      <EndProperty Name="FileContainer">
+        <ScalarProperty Name="file_id" ColumnName="file_id" />
+      </EndProperty>
+      <Condition ColumnName="PropertyManager_id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PropertyAuditEntry" TypeName="PropMgmtDB.PropertyAuditEntry" StoreEntitySet="AuditEntries">
+      <EndProperty Name="Property">
+        <ScalarProperty Name="id" ColumnName="Property_id" />
+      </EndProperty>
+      <EndProperty Name="AuditEntry">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Property_id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="TenantAuditEntry" TypeName="PropMgmtDB.TenantAuditEntry" StoreEntitySet="AuditEntries">
+      <EndProperty Name="Tenant">
+        <ScalarProperty Name="id" ColumnName="Tenant_id" />
+      </EndProperty>
+      <EndProperty Name="AuditEntry">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Tenant_id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="VendorAuditEntry" TypeName="PropMgmtDB.VendorAuditEntry" StoreEntitySet="AuditEntries">
+      <EndProperty Name="Vendor">
+        <ScalarProperty Name="id" ColumnName="Vendor_id" />
+      </EndProperty>
+      <EndProperty Name="AuditEntry">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Vendor_id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="HOAAuditEntry" TypeName="PropMgmtDB.HOAAuditEntry" StoreEntitySet="AuditEntries">
+      <EndProperty Name="HOA">
+        <ScalarProperty Name="id" ColumnName="HOA_id" />
+      </EndProperty>
+      <EndProperty Name="AuditEntry">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="HOA_id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PropertyManagerAuditEntry" TypeName="PropMgmtDB.PropertyManagerAuditEntry" StoreEntitySet="AuditEntries">
+      <EndProperty Name="PropertyManager">
+        <ScalarProperty Name="id" ColumnName="PropertyManager_id" />
+      </EndProperty>
+      <EndProperty Name="AuditEntry">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="PropertyManager_id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="OwnerAuditEntry" TypeName="PropMgmtDB.OwnerAuditEntry" StoreEntitySet="AuditEntries">
+      <EndProperty Name="Owner">
+        <ScalarProperty Name="id" ColumnName="Owner_id" />
+      </EndProperty>
+      <EndProperty Name="AuditEntry">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Owner_id" IsNull="false" />
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

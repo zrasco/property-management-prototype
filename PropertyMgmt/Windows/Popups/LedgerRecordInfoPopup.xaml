@@ -1,0 +1,52 @@
+﻿<Window x:Class="PropertyMgmt.Windows.Popups.LedgerRecordInfoPopup"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:PropertyMgmt.ViewModel"
+        xmlns:ignore="http://www.ignore.com"
+        mc:Ignorable="d ignore"
+        DataContext="{Binding Main, Source={StaticResource Locator}}"
+        MinWidth="610" MinHeight="520" Width="610" Height="520"
+        Title="Ledger information for (no name)"
+        Closed="Window_Closed">
+    <Grid DataContext="{Binding WorkingLedgerRecord}">
+        <GroupBox Header="General" Height="152" VerticalAlignment="Top">
+            <StackPanel Orientation="Vertical">
+                <Grid Margin="10">
+                    <TextBlock Text="Transaction date/time:" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <TextBox Margin="131,0,329,0" Width="100" VerticalAlignment="Center" HorizontalAlignment="Left" Text="{Binding transaction_date}"/>
+                    <TextBlock Margin="312,3,0,3" Text="Date/time due:" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <TextBox Margin="460,0,0,0" VerticalAlignment="Center" Width="100" HorizontalAlignment="Left" Text="{Binding due_date}"/>
+                </Grid>
+                <Grid Margin="10">
+                    <TextBlock Margin="0,2,0,4" Text="Amount:" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <TextBox Margin="131,2,0,2" VerticalAlignment="Center" Width="100" HorizontalAlignment="Left" Text="{Binding amount}"/>
+
+                </Grid>
+                <Grid Margin="10">
+                    <TextBlock Text="Type:" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <ComboBox Name="cbType" IsReadOnly="True" Margin="131,0,339,0" VerticalAlignment="Center" SelectedValue="{Binding WorkingType}"
+                              ItemsSource="{Binding TypeList}" />
+                    <TextBlock Text="Category:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="314,3,0,3"/>
+                    <ComboBox Name="cbCategory" IsReadOnly="True" Margin="412,0,10,0" VerticalAlignment="Center" SelectedValue="{Binding WorkingCategory}"
+                              ItemsSource="{Binding CategoryList, UpdateSourceTrigger=PropertyChanged}"/>
+                </Grid>
+                <Grid Margin="10">
+                </Grid>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Header="Notes" VerticalAlignment="Stretch" Margin="0,309,0,27">
+            <Grid VerticalAlignment="Stretch">
+                <TextBox AcceptsReturn="True" MinHeight="120" Text="{Binding notes}"/>
+            </Grid>
+        </GroupBox>
+        <Grid Height="35" VerticalAlignment="Bottom">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Content="OK" Width="60" VerticalAlignment="Center" Margin="0,10,0,3" IsDefault="True"
+                        Command="{Binding DataContext.SaveItemCommand, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{x:Static vm:ItemType.LedgerRecord}"/>
+                <Button Margin="30,10,0,3" Content="Cancel" Width="60" VerticalAlignment="Center" IsCancel="True"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

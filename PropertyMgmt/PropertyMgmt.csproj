@@ -1,0 +1,372 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EEDE2289-82F5-4B05-80B7-5A492F8F2863}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PropertyMgmt</RootNamespace>
+    <AssemblyName>PropertyMgmt</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <NuGetPackageImportStamp>72b20a41</NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight, Version=5.2.0.37222, Culture=neutral, PublicKeyToken=e7570ab207bcb616, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.2.0.0\lib\net45\GalaSoft.MvvmLight.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Extras, Version=5.2.0.37222, Culture=neutral, PublicKeyToken=669f0b5e8f868abf, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.2.0.0\lib\net45\GalaSoft.MvvmLight.Extras.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Platform, Version=5.2.0.37226, Culture=neutral, PublicKeyToken=5f873c45e98af8a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.2.0.0\lib\net45\GalaSoft.MvvmLight.Platform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PropertyChanged, Version=1.50.3.0, Culture=neutral, PublicKeyToken=ee3ee20bcf148ddd, processorArchitecture=MSIL">
+      <HintPath>..\packages\PropertyChanged.Fody.1.50.3\Lib\portable-net4+sl4+wp8+win8+wpa81+MonoAndroid16+MonoTouch40\PropertyChanged.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.2.0.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Model\AuditEntry.cs">
+      <DependentUpon>PropMgmtDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\BusinessType.cs">
+      <DependentUpon>PropMgmtDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ChargeType.cs">
+      <DependentUpon>PropMgmtDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Contact.cs">
+      <DependentUpon>PropMgmtDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Correspondence.cs">
+      <DependentUpon>PropMgmtDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DataService.cs" />
+    <Compile Include="Model\DepositType.cs">
+      <DependentUpon>PropMgmtDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\File.cs">
+      <DependentUpon>PropMgmtDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\FileContainer.cs">
+      <DependentUpon>PropMgmtDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\GateCode.cs">
+      <DependentUpon>PropMgmtDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\HOA.cs">
+      <DependentUpon>PropMgmtDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\HOA_PropertyManagerHistory.cs">
+      <DependentUpon>PropMgmtDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\IDataService.cs" />
+    <Compile Include="Model\LedgerRecord.cs">
+      <DependentUpon>PropMgmtDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Owner.cs">
+      <DependentUpon>PropMgmtDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ParkingStall.cs">
+      <DependentUpon>PropMgmtDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PaymentType.cs">
+      <DependentUpon>PropMgmtDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Property.cs">
+      <DependentUpon>PropMgmtDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PropertyManager.cs">
+      <DependentUpon>PropMgmtDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PropMgmtDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PropMgmtDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PropMgmtDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PropMgmtDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PropMgmtDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PropMgmtDB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ServiceCall.cs">
+      <DependentUpon>PropMgmtDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Tenant.cs">
+      <DependentUpon>PropMgmtDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\UtilitiesPaymentHistory.cs">
+      <DependentUpon>PropMgmtDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\UtilitiesType.cs">
+      <DependentUpon>PropMgmtDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Vehicle.cs">
+      <DependentUpon>PropMgmtDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Vendor.cs">
+      <DependentUpon>PropMgmtDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\Clone.cs" />
+    <Compile Include="Utilities\State.cs" />
+    <Compile Include="ViewModel\AdministrationViewModel.cs" />
+    <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\ViewModelLocator.cs" />
+    <Compile Include="Windows\AdministrationWindow.xaml.cs">
+      <DependentUpon>AdministrationWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\HOAEditorWindow.xaml.cs">
+      <DependentUpon>HOAEditorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\OwnerEditorWindow.xaml.cs">
+      <DependentUpon>OwnerEditorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Popups\ContactInfoPopup.xaml.cs">
+      <DependentUpon>ContactInfoPopup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Popups\CorrespondanceInfoPopup.xaml.cs">
+      <DependentUpon>CorrespondanceInfoPopup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Popups\LedgerRecordInfoPopup.xaml.cs">
+      <DependentUpon>LedgerRecordInfoPopup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Popups\ServiceCallInfoPopup.xaml.cs">
+      <DependentUpon>ServiceCallInfoPopup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\PropertyEditorWindow.xaml.cs">
+      <DependentUpon>PropertyEditorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\PropertyMgmtEditorWindow.xaml.cs">
+      <DependentUpon>PropertyMgmtEditorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\PropertyWindow.xaml.cs">
+      <DependentUpon>PropertyWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\TenantEditorWindow.xaml.cs">
+      <DependentUpon>TenantEditorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\UserControls\AuditControl.xaml.cs">
+      <DependentUpon>AuditControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\UserControls\DocumentsControl.xaml.cs">
+      <DependentUpon>DocumentsControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\VendorEditorWindow.xaml.cs">
+      <DependentUpon>VendorEditorWindow.xaml</DependentUpon>
+    </Compile>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Skins\MainSkin.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\AdministrationWindow.xaml">
+      <SubType>Form</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\HOAEditorWindow.xaml">
+      <SubType>Form</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\OwnerEditorWindow.xaml">
+      <SubType>Form</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Popups\ContactInfoPopup.xaml">
+      <SubType>Form</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Popups\CorrespondanceInfoPopup.xaml">
+      <SubType>Form</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Popups\LedgerRecordInfoPopup.xaml">
+      <SubType>Form</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Popups\ServiceCallInfoPopup.xaml">
+      <SubType>Form</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\PropertyEditorWindow.xaml">
+      <SubType>Form</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\PropertyMgmtEditorWindow.xaml">
+      <SubType>Form</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\PropertyWindow.xaml">
+      <SubType>Form</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\TenantEditorWindow.xaml">
+      <SubType>Form</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\UserControls\AuditControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\UserControls\DocumentsControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\VendorEditorWindow.xaml">
+      <SubType>Form</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EntityDeploy Include="Model\PropMgmtDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>PropMgmtDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="App.Config" />
+    <None Include="Model\PropMgmtDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>PropMgmtDB.Context.cs</LastGenOutput>
+      <DependentUpon>PropMgmtDB.edmx</DependentUpon>
+    </None>
+    <None Include="Model\PropMgmtDB.edmx.diagram">
+      <DependentUpon>PropMgmtDB.edmx</DependentUpon>
+    </None>
+    <None Include="Model\PropMgmtDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>PropMgmtDB.cs</LastGenOutput>
+      <DependentUpon>PropMgmtDB.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="FodyWeavers.xml" />
+    <Content Include="Model\PropMgmtDB.edmx.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Design\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Fody.1.29.2\build\portable-net+sl+win+wpa+wp\Fody.targets" Condition="Exists('..\packages\Fody.1.29.2\build\portable-net+sl+win+wpa+wp\Fody.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Fody.1.29.2\build\portable-net+sl+win+wpa+wp\Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Fody.1.29.2\build\portable-net+sl+win+wpa+wp\Fody.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

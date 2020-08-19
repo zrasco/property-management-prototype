@@ -1,0 +1,69 @@
+﻿<Window x:Class="PropertyMgmt.Windows.AdministrationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ignore="http://www.ignore.com"
+        mc:Ignorable="d ignore"
+        DataContext="{Binding AdministrationVM, Source={StaticResource Locator}}"
+        Title="Data administration">
+
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="Placeholder">
+            </MenuItem>
+        </Menu>
+        <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal">
+            <Button Content="Save" Command="{Binding SaveChanges}"/>
+        </StackPanel>
+        <Grid>
+            <TabControl>
+                <TabItem Header="Deposit types">
+                    <Grid>
+                        <DataGrid ItemsSource="{Binding DepositTypeList}" CanUserAddRows="True" IsReadOnly="False">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Deposit type" Binding="{Binding Path=type}" Width="*"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Utility types">
+                    <Grid>
+                        <DataGrid ItemsSource="{Binding UtilityTypeList}" CanUserAddRows="True" IsReadOnly="False">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Utility type" Binding="{Binding Path=type}" Width="*"/> 
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Business types">
+                    <Grid>
+                        <DataGrid ItemsSource="{Binding BusinessTypeList}" CanUserAddRows="True" IsReadOnly="False">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Business type" Binding="{Binding Path=type}" Width="*"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Payment types">
+                    <Grid>
+                        <DataGrid ItemsSource="{Binding PaymentTypeList}" CanUserAddRows="True" IsReadOnly="False">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Payment type" Binding="{Binding Path=type}" Width="*"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Charge types">
+                    <Grid>
+                        <DataGrid ItemsSource="{Binding ChargeTypeList}" CanUserAddRows="True" IsReadOnly="False">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Charge type" Binding="{Binding Path=type}" Width="*"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
+                </TabItem>
+            </TabControl>
+        </Grid>
+    </DockPanel>
+</Window>

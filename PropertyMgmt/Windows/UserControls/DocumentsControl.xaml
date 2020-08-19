@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="PropertyMgmt.Windows.UserControls.DocumentsControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300"
+             DataContext="{Binding Main, Source={StaticResource Locator}}">
+    <Grid>
+        <Grid>
+            <DataGrid Name="datagridDocuments" AllowDrop="True" Drop="datagridDocuments_Drop" SelectedItem="{Binding WorkingDocument}" Margin="0,0,0,20">
+                <DataGrid.RowStyle>
+                    <Style TargetType="DataGridRow">
+                        <EventSetter Event="MouseDoubleClick" Handler="datagridDocuments_MouseDoubleClick"/>
+                        <Setter Property="Visibility" Value="{Binding Visible}"/>
+                    </Style>
+                </DataGrid.RowStyle>
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Name" Width="*" Binding="{Binding file_name}"/>
+                    <DataGridTextColumn Header="Size (bytes)" Width="*" Binding="{Binding file_size}"/>
+                    <DataGridTextColumn Header="Date modified" Width="*" Binding="{Binding date_modified}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Grid Height="20" Margin="0,0,0,0" VerticalAlignment="Bottom">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button x:Name="btnAddDocument" Content="_Add" Click="btnAddDocument_Click"/>
+                    <Button x:Name="btnDeleteDocument" Content="_Delete" Click="btnDeleteDocument_Click"/>
+                </StackPanel>
+                </Grid>
+        </Grid>
+    </Grid>
+</UserControl>

@@ -1,0 +1,151 @@
+﻿<Window x:Class="PropertyMgmt.Windows.VendorEditorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:uc="clr-namespace:PropertyMgmt.Windows.UserControls"
+        xmlns:vm="clr-namespace:PropertyMgmt.ViewModel"
+        xmlns:ignore="http://www.ignore.com"
+        mc:Ignorable="d ignore"
+        MinHeight="580" MinWidth="832" Height="580" Width="832"
+        DataContext="{Binding Main, Source={StaticResource Locator}}"
+        Title="Vendor information for (no name)"
+        Closed="Window_Closed">
+
+    <DockPanel DataContext="{Binding WorkingVendor}">
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="Letters"/>
+        </Menu>
+        <Grid DockPanel.Dock="Bottom">
+            <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" Margin="0,10">
+                <Button Content="OK" HorizontalAlignment="Right" Width="50" Margin="10,0" IsDefault="True"
+                        Command="{Binding DataContext.SaveItemCommand, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{x:Static vm:ItemType.Vendor}"/>
+                <Button Content="Cancel" HorizontalAlignment="Right" Width="50" Margin="10,0" IsCancel="True"/>
+            </StackPanel>
+
+        </Grid>
+        <Grid>
+            <TabControl>
+                <TabItem Header="Information">
+                    <StackPanel Orientation="Vertical">
+                        <GroupBox Header="General information" Width="766" Margin="6,10,6,0">
+                            <StackPanel Orientation="Vertical">
+                                <Grid Margin="10">
+                                    <TextBlock Text="Company name:" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                    <TextBox Name="txtCompanyName" Width="600" HorizontalAlignment="Right" Text="{Binding company_name}" TextChanged="txtCompanyName_TextChanged" />
+                                </Grid>
+                                <Grid Margin="10">
+                                    <TextBlock Text="Business type:" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                    <ComboBox Width="600" HorizontalAlignment="Right" 
+                                              ItemsSource="{Binding DataContext.BusinessTypeList, RelativeSource={RelativeSource AncestorType=Window}}" DisplayMemberPath="type"
+                                              SelectedItem="{Binding BusinessType}"/>
+                                </Grid>
+                                <Grid Margin="10">
+                                    <TextBlock Text="Address #1:" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                    <TextBox Width="600" HorizontalAlignment="Right"  Text="{Binding address1}" />
+                                </Grid>
+                                <Grid Margin="10">
+                                    <TextBlock Text="Address #2:" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                    <TextBox Width="600" HorizontalAlignment="Right"  Text="{Binding address2}" />
+                                </Grid>
+                                <StackPanel Margin="10" Orientation="Horizontal">
+                                    <TextBlock Text="City:" VerticalAlignment="Center"/>
+                                    <TextBox Margin="111,0,0,0" Width="140"  Text="{Binding city}" />
+                                    <TextBlock Margin="40,0,0,0" Text="State:" VerticalAlignment="Center"/>
+                                    <ComboBox Margin="10,0,0,0" IsReadOnly="True" Width="50" VerticalAlignment="Center" 
+                                              ItemsSource="{Binding DataContext.StateList, RelativeSource={RelativeSource AncestorType=Window}}"
+                                              DisplayMemberPath="Abbreviations" SelectedValue="{Binding state}" SelectedValuePath="Abbreviations"/>
+                                    <TextBlock Margin="40,0,0,0" Text="Zip:" VerticalAlignment="Center"/>
+                                    <TextBox Margin="10,0,0,0" Width="70" Text="{Binding zip}" />
+                                </StackPanel>
+                                <StackPanel Margin="10" Orientation="Horizontal">
+                                    <TextBlock Text="Phone #1:" VerticalAlignment="Center"/>
+                                    <TextBox Margin="82,0,0,0" Width="80" Text="{Binding phone1}"  />
+                                    <TextBlock Margin="60,0,0,0" Text="Phone #2:" VerticalAlignment="Center"/>
+                                    <TextBox Margin="10,0,0,0" Width="80" Text="{Binding phone2}" />
+                                    <TextBlock Margin="60,0,0,0" Text="Fax:" VerticalAlignment="Center"/>
+                                    <TextBox Margin="10,0,0,0" Width="80" Text="{Binding fax}" />
+                                </StackPanel>
+                                <TextBlock Margin="10" Text="Contact list:"/>
+                                <Grid>
+                                    <DataGrid Name="dataGridContacts" ItemsSource="{Binding ContactsList, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding WorkingContact}" Height="75">
+                                        <DataGrid.Columns>
+                                            <DataGridTextColumn Header="Name" Binding="{Binding FullName}"/>
+                                            <DataGridTextColumn Header="Address" Binding="{Binding FullAddress}"/>
+                                            <DataGridTextColumn Header="City" Binding="{Binding city}"/>
+                                            <DataGridTextColumn Header="State" Binding="{Binding state}"/>
+                                            <DataGridTextColumn Header="Zip" Binding="{Binding zip}"/>
+                                            <DataGridTextColumn Header="Phone" Binding="{Binding phone1}"/>
+                                        </DataGrid.Columns>
+                                        <DataGrid.RowStyle>
+                                            <Style TargetType="DataGridRow">
+                                                <EventSetter Event="MouseDoubleClick" Handler="datagridContacts_MouseDoubleClick"/>
+                                                <Setter Property="Visibility" Value="{Binding Visible}"/>
+                                            </Style>
+                                        </DataGrid.RowStyle>
+                                    </DataGrid>
+                                </Grid>
+                                <Grid>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                                        <Button Name="btnNewVendorContact" Content="_New..." Width="60"
+                                                Command="{Binding DataContext.NewItemCommand, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{x:Static vm:ItemType.Contact}"/>
+                                        <Button Name="btnChangeVendorContact" Content="_Change..." Width="60"
+                                                Command="{Binding DataContext.OpenItemCommand, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{x:Static vm:ItemType.Contact}"/>
+                                        <Button Name="btnDeleteVendorContact" Content="_Delete..." Width="60"
+                                                Command="{Binding DataContext.RemoveItemCommand, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{x:Static vm:ItemType.Contact}"/>
+                                    </StackPanel>
+                                </Grid>
+                            </StackPanel>
+                        </GroupBox>
+
+
+                    </StackPanel>
+
+                </TabItem>
+                <TabItem Header="Service calls">
+                    <Grid>
+                        <Grid>
+                            <StackPanel Orientation="Vertical">
+                                <Grid>
+                                    <CheckBox Name="chkShowActiveOnly" Content="Show active only" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                        <Button Name="btnNewServiceCall" Content="_New..." Width="60"
+                                                            Command="{Binding DataContext.NewItemCommand, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{x:Static vm:ItemType.ServiceCall}"/>
+                                        <Button Name="btnChangeServiceCall" Content="_Change..." Width="60"
+                                                            Command="{Binding DataContext.OpenItemCommand, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{x:Static vm:ItemType.ServiceCall}"/>
+                                        <Button Name="btnDeleteServiceCall" Content="_Delete..." Width="60"
+                                                            Command="{Binding DataContext.RemoveItemCommand, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{x:Static vm:ItemType.ServiceCall}"/>
+                                    </StackPanel>
+                                </Grid>
+                                <DataGrid Margin="0,4,0,0" Name="datagridServiceCalls" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ItemsSource="{Binding ServiceCalls}"
+                                                      SelectedItem="{Binding WorkingServiceCall}" AutoGenerateColumns="False" IsReadOnly="True" CanUserAddRows="False" 
+                                                      CanUserDeleteRows="False" HeadersVisibility="Column">
+                                    <DataGrid.RowStyle>
+                                        <Style TargetType="DataGridRow">
+                                            <EventSetter Event="MouseDoubleClick" Handler="datagridServiceCalls_MouseDoubleClick"/>
+                                            <Setter Property="Visibility" Value="{Binding Visible}"/>
+                                        </Style>
+                                    </DataGrid.RowStyle>
+                                    <DataGrid.Columns>
+                                            <DataGridTextColumn Header="Invoice #" Width=".4*" Binding="{Binding invoice_nbr}"/>
+                                            <DataGridTextColumn Header="Property" Binding="{Binding Property.FullAddress}"/>
+                                            <DataGridTextColumn Header="Date called in" Width="*" Binding="{Binding time_placed}"/>
+                                            <DataGridTextColumn Header="Date completed" Width="1.2*" Binding="{Binding time_completed}"/>
+                                            <DataGridTextColumn Header="Summary" Width="3*" Binding="{Binding summary}"/>
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                            </StackPanel>
+                        </Grid>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Documents">
+                    <uc:DocumentsControl/>
+                </TabItem>
+                <TabItem Header="Audit Trail">
+                    <uc:AuditControl/>
+                </TabItem>
+
+            </TabControl>
+        </Grid>
+    </DockPanel> 
+</Window>
